@@ -3,7 +3,6 @@
  *
  */
 package gnogitoprototype;
-import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IMenuManager;
@@ -28,7 +27,7 @@ public class GnogitoWorkbenchAdvisor extends WorkbenchAdvisor {
 	public void preWindowOpen(IWorkbenchWindowConfigurer configurer) {
 		super.preWindowOpen(configurer);
 		configurer.setShowCoolBar(true);
-		configurer.setShowShortcutBar(true);
+		/*configurer.setShowShortcutBar(true);*/
 		configurer.setShowStatusLine(true);
 		configurer.setShowMenuBar(true);
 	}
@@ -87,9 +86,7 @@ public class GnogitoWorkbenchAdvisor extends WorkbenchAdvisor {
 				IWorkbenchActionConstants.M_WINDOW);
 		menu.add(ActionFactory.OPEN_NEW_WINDOW.create(window));
 		menu.add(new Separator());
-		MenuManager perspectiveMenu = new MenuManager(Messages
-				.getString("Open_Perspective"),
-				IWorkbenchActionConstants.M_VIEW); //$NON-NLS-1$
+		MenuManager perspectiveMenu = new MenuManager("Open Perspective");
 		IContributionItem perspectiveList = ContributionItemFactory.PERSPECTIVES_SHORTLIST
 				.create(window);
 		perspectiveMenu.add(perspectiveList);
