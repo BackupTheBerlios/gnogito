@@ -172,3 +172,40 @@ Parameter anhängen muss, da ansonsten eine vollständige neue Workbench
 gestartet wird. Man gibt hier den voll qualifizierten Klassennamen
 der Klasse an, welche das Interface IPlatformRunnable implementiert.
 Beispiel: "-application gnogitoprototype.GnogitoPrototype".
+
+Des weiteren sollte man vorläufig nur die tatsächlich benötigten
+Plugins zur Laufzeit laden, da es ansonsten zu Fehlermeldungen
+der folgenden Art kommt: 
+
+Invalid Menu Extension (Path is invalid): org.eclipse.help.internal.ui.HelpAction
+Invalid Menu Extension (Path is invalid): org.eclipse.ui.edit.text.openExternalFile
+Invalid Menu Extension (Path is invalid): org.eclipse.ui.edit.text.gotoLastEditPosition
+Invalid Menu Extension (Path is invalid): org.eclipse.update.ui.updateMenu
+Invalid Menu Extension (Path is invalid): org.eclipse.update.ui.configManager
+Invalid Menu Extension (Path is invalid): org.eclipse.update.ui.newUpdates
+
+Darüber hinaus werden ansonsten natürlich auch Plugins in das 
+User-Interface geladen, die in Gnogito nicht gebraucht werden,
+und es erhöht sich insgesamt die Startzeit des Programms beim
+Testen. Für ein minimales Rich Client Platform Projekt sind
+nur die folgenden Plugins nötig. ACHTUNG: Die Liste wird sich
+im Lauf der Entwicklung natürlich verlängern, aber man kann sie
+als Ausgangspunkt für eine minimale Liste von Plugins wählen.
+Die Auswahl trifft man im "Run->Debug"-Dialog unter der Lasche 
+"Plugins and Fragments". Dort wählt man "Choose plugins and
+fragments to launch from list" und wählt dann alle außer den
+folgenden Plugins ab (es sei denn man weiß, dass es benötigt
+wird):
+
+org.eclipse.core.runtime 
+org.eclipse.core.runtime.compatibility 
+org.eclipse.help 
+org.eclipse.jface 
+org.eclipse.osgi 
+org.eclipse.osgi.services 
+org.eclipse.osgi.util 
+org.eclipse.swt 
+org.eclipse.swt.win32 
+org.eclipse.ui 
+org.eclipse.ui.workbench 
+org.eclipse.update.configurator 
