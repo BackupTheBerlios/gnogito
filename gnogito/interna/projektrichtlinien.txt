@@ -1,0 +1,4 @@
+Das vorliegende Dokument dient der Fixierung von Projektrichtlinien,
+deren Vereinbarung sich im Lauf der Projektarbeit als sinnvoll
+erwiesen hat. 
+
