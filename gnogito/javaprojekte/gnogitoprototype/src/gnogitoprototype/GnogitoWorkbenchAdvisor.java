@@ -4,6 +4,7 @@
  */
 package gnogitoprototype;
 
+import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.IContributionItem;
 import org.eclipse.jface.action.IMenuManager;
@@ -32,7 +33,7 @@ public class GnogitoWorkbenchAdvisor extends WorkbenchAdvisor {
 		//super.preWindowOpen(configurer);
 		configurer.setShowCoolBar(true);
 		configurer.setShowShortcutBar(true);
-		configurer.setShowStatusLine(false);
+		configurer.setShowStatusLine(true);
 		configurer.setShowMenuBar(true);
 	}
 	
@@ -126,7 +127,7 @@ public class GnogitoWorkbenchAdvisor extends WorkbenchAdvisor {
 
     private MenuManager createHelpMenu(IWorkbenchWindow window) {
         MenuManager menu = new MenuManager(Messages.getString("Help"), //$NON-NLS-1$
-            IWorkbenchActionConstants.M_HELP);
+            IWorkbenchActionConstants.M_HELP);    
         menu.add(new GroupMarker(IWorkbenchActionConstants.HELP_START));
         menu.add(new GroupMarker(IWorkbenchActionConstants.HELP_END));
         menu.add(new GroupMarker(IWorkbenchActionConstants.MB_ADDITIONS));
