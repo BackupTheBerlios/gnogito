@@ -12,10 +12,16 @@ import org.eclipse.ui.application.WorkbenchAdvisor;
  * 
  * created first in project gnogitoworkbench
  */
+
+/* ok, hier erzeugen wir die Laufzeitplatform */
 public class GnogitoWorkbench implements IPlatformRunnable {
 	public Object run(Object args) {
+		/* wir erzeugen einen Workbench-Aufpasser und ein Display */
+		
 		WorkbenchAdvisor workbenchAdvisor = new GnogitoWorkbenchAdvisor();
 		Display display = PlatformUI.createDisplay();
+		
+		/* verschiedene Möglichkeiten, je nach vorherigem Erfolg */
 		int returnCode = PlatformUI.createAndRunWorkbench(display,
 				workbenchAdvisor);
 		if (returnCode == PlatformUI.RETURN_RESTART) {
