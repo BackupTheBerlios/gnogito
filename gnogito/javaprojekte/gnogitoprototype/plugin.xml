@@ -2,8 +2,8 @@
 <?eclipse version="3.0"?>
 <plugin
    id="gnogitoprototype"
-   name="GnogitoPlugin"
-   version="1.0.0"
+   name="GnogitoPrototype"
+   version="0.0.1"
    provider-name="KleineBrothers">
 
    <runtime>
