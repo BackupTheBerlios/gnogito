@@ -1,0 +1,263 @@
+<html>
+<head>
+<title> Projektrichtlinien </title>
+</head>
+<body>
+<h2><a name="anfang">Projektrichtlinien</a></h2>
+<h3> Inhalt: </h3>
+
+
+<p>
+  <a href="#1">   1.  CVS-Einstellungen </a> <br>
+  <a href="#2">   2.  Anlegen eines neuen Java-Projektes </a><br>
+  <a href="#2.1"> 2.1 Erstellen des Projektes in der Java-Perspektive </a><br>
+  <a href="#2.2"> 2.2 Einchecken des Projektes, Auswahl des Repositories </a><br>
+  <a href="#2.3"> 2.3 Einchecken des Projektes, Auswahl des richtigen Verzeichnisses </a><br>
+  <a href="#2.4"> 2.4 Committen (ohne .project und .classpath!) </a><br>
+  <a href="#3">   3.  Auschecken eines Java-(Plugin-)Projektes </a><br>
+  <a href="#3.1"> 3.1 Projektverzeichnis ausw&auml;hlen </a><br>
+  <a href="#3.2"> 3.2 Als Java-Projekt auschecken </a><br>
+  <a href="#3.3"> 3.3 Plugin-Javadatei l&ouml;schen </a><br>
+  <a href="#3.4"> 3.4 .project, .classpath und .cvsignore in .cvsignore aufnehmen </a><br>
+  <a href="#3.5"> 3.5 Projekt &uuml;bersetzen und starten </a><br>
+</p>
+
+<br><br>
+
+<h4><a name="1"> 1.  CVS-Einstellungen </a></h4>
+<p>
+Um mit Eclipse direkt auf dem Repository arbeiten zu k&ouml;nnen,
+muss man eine "Repository location" konfigurieren. Dies kann
+beispielsweise in der CVS-Perspektive &uuml;ber das Kontextmen&uuml;
+geschehen. Es &ouml;ffnet sich der "Add CVS Repository"-Dialog,
+in dem die Felder wie folgt zu belegen sind:<br>
+</p>
+
+<p>
+Host: cvs.berlios.de<br>
+Repository path: /cvsroot/gnogito<br>
+User: Berlios-Benutzername<br>
+Password: Berlios-Passwort<br>
+Connection type: pserver<br>
+[X] Use default port
+</p>
+
+
+
+
+<h4><a name="2"> 2. Anlegen eines neuen Java-Projektes </a></h4>
+<p>
+Java-Projekte sind im Gnogito-Repository an einer bestimmten Stelle
+abgelegt. Damit hier die Ordnung gewahrt wird, ist beim Anlegen eines
+neuen Projektes im Repository die folgende Schrittfolge einzuhalten.
+</p>
+
+<h4><a name="2.1"> 2.1 Erstellen des Projektes in der Java-Perspektive </a></h4>
+<p>
+Zun&auml;chst erstellt man sein neues Projekt in der Java-Perspektive,
+bis es einen Status erreicht, den man einchecken m&ouml;chte.
+</p>
+
+<h4><a name="2.2"> 2.2 Einchecken des Projektes, Auswahl des Repositories</a></h4>
+<p>
+Nun wird das Projekt im "Package Explorer" selektiert. ‹ber das
+Kontextmen&uuml; wird "Team -&gt; Share Project". Wenn das Gnogito bereits
+einmal verwendet wurde, taucht es im darauf folgenden Dialog in
+der Liste der existierenden Repositories auf. Es muss dann selektiert
+und die Checkbox "Use existing repository location" ausgew&auml;hlt werden.
+Andernfalls muss das Repository den Eclipse bekannten Repositories
+mittels "Create a new repository location" hinzugef&uuml;gt werden. Welche
+Einstellungen hier vorzunehmen sind, wird im vorliegenden Dokument
+noch an anderer Stelle zu besprechen sein. Nehmen wir vorl&auml;ufig an,
+das Repository wurde bereits verwendet und nun ausgew&auml;hlt. Wir
+best&auml;tigen das mit "Next".
+</p>
+
+<h4><a name="2.3"> 2.3 Einchecken des Projektes, Auswahl des richtigen Verzeichnisses </a></h4>
+<p>
+Der n&auml;chste Schritt ist besonders wichtig. Werden hier Fehler gemacht,
+so resultiert dies in f&auml;lschlich angelegten Verzeichnissen im
+Repository, die bekanntermaﬂen nicht wieder l&ouml;schbar sind. Also bitte
+die folgenden Bemerkungen exakt befolgen! Nachdem wir zuvor mittels
+"Next" best&auml;tigt haben, &ouml;ffnet sich nun der "Enter Module
+Name"-Dialog. Hier w&auml;hlt man "Use specified module name". Es ist dann
+aber NICHT nur der Modulname, sondern der komplette Pfad zu dem
+Java-Projektverzeichnis anzugeben, denn laut Konvention verwenden
+wir ja nur ein einiges CVS-Modul f&uuml;r das Gnogito-Projekt, unter dem
+wir verschiedene Java-Projekte einchecken. Ein Java-Projekt ist also
+nur ein Unterverzeichnis des CVS-Modules /gnogito. Es liegt dort in
+dem Unterverzeichnis "javaprojekte", so dass sich als Gesamtpfad f&uuml;r
+das Modul ergibt:
+</p>
+
+<p>
+/gnogito/javaprojekte/&lt;projektverzeichnisname&gt;<br>
+</p>
+
+<p>
+Danach mittels "Next" und dann "Finish" best&auml;tigen.
+</p>
+
+<h4><a name="2.4"> 2.4 Committen (ohne .project und .classpath!) </a></h4>
+<p>
+Durch die bisherigen Arbeitsschritte wurde lediglich ein neues
+Verzeichnis &lt;projektverzeichnisname&gt; in das Repository eingef&uuml;gt.
+Gleichzeitig wurde das Java-Projekt selbst zu einer CVS-Arbeitskopie.
+Die im Projekt enthaltenen Dateien geh&ouml;ren aber noch nicht zum
+Repository, denn bislang wurde kein "commit" durchgef&uuml;hrt. Das holen
+wir jetzt nach. In der "Synchronize View - CVS Workspace"-Perspektive
+finden sich nun die Dateien und Verzeichnisse, die noch auf einen
+commit warten. Darunter befinden sich jedoch auch die Dateien .project
+und .classpath, die im Repository nichts verloren haben. Da wir diese
+nicht immer in der "Synchronize View"-Perspektive sehen wollen, f&uuml;gen
+wir sie zun&auml;chst der .cvsignore-Datei hinzu. Hierzu sind einfach die
+beiden Dateien zu selektieren und dann im Kontextmen&uuml; "Add to
+.cvsignore" auszuw&auml;hlen. Den darauf folgenden Dialog einfach
+best&auml;tigen. Danach wird, falls noch nicht vorhanden, eine neue
+Datei .cvsignore erstellt. Diese nehmen wir gleich selbst noch &uuml;ber
+"Add to .cvsignore" mit in die Liste der Dateien auf, die wir
+dauerhaft nicht in das Repository aufnehmen wollen. Es sollten nun
+in der "Synchronize View"-Perspektive weder die .projekt/.classpath
+noch die .cvsignore-Datei zu sehen sein.
+</p>
+
+<p>
+Die verbleibenden Dateien sollten aller Wahrscheinlichkeit nach
+in das Repository aufgenommen werden. Dies erledigen wir nun mittels
+"Kontextmen&uuml;-&gt;Commit". Danach ist noch eine eine Commit-Nachricht
+einzugeben. Nach der Best&auml;tigung sollte sich dann die "Synchronize
+View"-Perspektive geleert haben. Damit ist das neue Java-Projekt
+vollst&auml;ndig und an der richtigen Stelle im Repository angekommen.
+</p>
+
+<h4><a name="3"> 3. Auschecken eines Java-(Plugin-)Projektes </a></h4>
+<p>
+Java-Projekte werden im Repository ohne die .project und .classfile
+Dateien abgespeichert, da diese Rechnerspezifisch sind und ansonsten
+jeweils nach einem Checkout angepaﬂt werden m&uuml;ssten. Daher ist beim
+Auschecken eine bestimmte Schrittfolge einzuhalten, um als Ergebnis
+ein valides Eclipse-Java-Projekt zu erhalten.<br>
+Weiterhin muss beachtet werden, dass es sich bei Gnogito um eine
+Plugin-Projekt handelt, da f&uuml;r derartige Projekte eine Reihe von
+zus&auml;tzlichen Klassen in das Projekt eingebunden werden m&uuml;ssen. Wenn
+man beim Auschecken die richtigen Schritte vollzieht, so bindet
+Eclipse diese Klassen jedoch ganz automatisch ein.
+</p>
+
+<h4><a name="3.1"> 3.1 Projektverzeichnis ausw&auml;hlen </a></h4>
+<p>
+Alle Java-Projekte werden im Repository unter /gnogito/javaprojekte
+abgelegt. Die darunter befindlichen Verzeichnisse sind jeweils
+Wurzelverzeichnisse eines Java-Projektes. Will man also ein Projekt
+in den Eclipse-Workspace auschecken, so ist zun&auml;chst in der
+CVS-Perspektive ein solches Projektverzeichnis auszuw&auml;hlen.
+</p>
+
+<h4><a name="3.2"> 3.2 Als Java-Projekt auschecken </a></h4>
+<p>
+Nun ist im Kontextmen&uuml; "Check out as" auszuw&auml;hlen. Im darauf folgenden
+Dialog muss die Checkbox "Check out as a project configured using the
+New Project Wizard" selektiert sein. Mittels "Finish" wird best&auml;tigt -
+es &ouml;ffnet sich der "New Project"-Dialog. Hier ist es nun wichtig, auf
+der linken Seite zun&auml;chst "Plug-in Development" auszuw&auml;hlen. Daraufhin
+erscheint auf der rechten Seite eine Listen von Auswahlm&ouml;glichkeiten,
+von der "Plug-in Project" zu selektieren ist. Dieser Schritt f&uuml;hrt
+letztlich zur Erzeugung lokaler .project und .classpath Dateien sowie
+zum Einbinden der f&uuml;r Plugins notwendigen Klassen in das Projekt.
+Man best&auml;tigt mittels "Next" und muss nun einen Projektnamen angeben.
+Hier sollte der Name des Projektverzeichnisses aus dem Repository
+gew&auml;hlt werden. Mittels "Next" gelangt man in den "Plug-in Projekt
+Structure" Dialog. Hier ist die Checkbox "Create a Java-Project" zu
+aktivieren. Die Namen f&uuml;r Runtime library, Source folder und Java
+builder output k&ouml;nnen &uuml;bernommen werden. Das H&auml;kchen "Intended for
+use with older Eclipse versions" sollte nicht angehakt werden. Mittels
+"Next" geht es in den "Plug-in Code Generators" Dialog. Hier wird
+"Default Plug-in Structure" gew&auml;hlt. "Next" f&uuml;hrt in einem weiteren
+Dialog. Hier k&ouml;nnen noch die "KleineBrothers" als Provider angegeben
+werden, alle anderen Angaben werden wie vorgeschlagen &uuml;bernommen.
+Mittels "Finish" best&auml;tigen f&uuml;hrt zum endg&uuml;ltigen Anlegen des
+Projektes, das nun sofort gestartet werden kann.
+</p>
+
+<h4><a name="3.3"> 3.3 Plugin-Javadatei l&ouml;schen</a></h4>
+<p>
+Durch den Code-Generation Wizard wurde bei dem obigen Prozess eine
+neue Datei mit dem Namen &lt;projektname&gt;Plugin.java angelegt. Dabei
+handelt es sich um eine &uuml;berfl&uuml;ssige Datei, die unter Eclipse 2.x
+noch notwendig war. Mit Eclipse 3.x ist es nicht mehr n&ouml;tig, ein
+Plugin von der Klasse Plugin abzuleiten. Daher kann und soll diese
+generierte Datei nach dem Auschecken gel&ouml;scht werden.
+</p>
+
+<h4><a name="3.4"> 3.4 .project, .classpath und .cvsignore in .cvsignore aufnehmen</a></h4>
+<p>
+Wechselt man in die "Synchronize View" Perspektive, so bekommt man
+alle Dateien angezeigt, die noch mit dem CVS synchronisiert werden
+m&uuml;ssen. Hat man die &lt;projektname&gt;Plugin.java bereits gel&ouml;scht, so
+ist diese hier schon verschwunden. Dann verbleiben nach einem
+Auschecken aber immernoch die .project und die .classpath Datei.
+Diese kann man markieren und &uuml;ber das Kontextmen&uuml; in die .cvsignore
+Datei aufnehmen (denn man will diese Dateien ja auch k&uuml;nftig nicht
+in das CVS aufnehmen). Dabei wird dann die .cvsignore Datei erst
+angelegt, woraufhin man auch diese selbst noch in sich selbst
+aufnimmt. Nach diesen Schritten sollte nun die "Synchronize View"-
+Perspektive leer sein. Andernfalls ist vermutlich etwas schief
+gelaufen!
+</p>
+
+<h4><a name="3.5"> 3.5 Projekt &uuml;bersetzen und starten</a></h4>
+<p>
+Um die Applikation zu starten, legt man zun&auml;chst &uuml;ber "Run-&gt;Debug ..."
+eine neue Konfiguration im "Run-time Workbench"-Bereich an. Hier ist
+zu beachten, dass man an die "Program Arguments" ggf. den -application
+Parameter anh&auml;ngen muss, da ansonsten eine vollst&auml;ndige neue Workbench
+gestartet wird. Man gibt hier den voll qualifizierten Klassennamen
+der Klasse an, welche das Interface IPlatformRunnable implementiert.
+Beispiel: "-application gnogitoprototype.GnogitoPrototype".<br>
+Des weiteren sollte man vorl&auml;ufig nur die tats&auml;chlich ben&ouml;tigten
+Plugins zur Laufzeit laden, da es ansonsten zu Fehlermeldungen
+der folgenden Art kommt:
+</p>
+
+<p>
+Invalid Menu Extension (Path is invalid): org.eclipse.help.internal.ui.HelpAction <br>
+Invalid Menu Extension (Path is invalid): org.eclipse.ui.edit.text.openExternalFile <br>
+Invalid Menu Extension (Path is invalid): org.eclipse.ui.edit.text.gotoLastEditPosition <br>
+Invalid Menu Extension (Path is invalid): org.eclipse.update.ui.updateMenu <br>
+Invalid Menu Extension (Path is invalid): org.eclipse.update.ui.configManager <br>
+Invalid Menu Extension (Path is invalid): org.eclipse.update.ui.newUpdates<br>
+</p>
+
+<p>
+Dar&uuml;ber hinaus werden ansonsten nat&uuml;rlich auch Plugins in das
+User-Interface geladen, die in Gnogito nicht gebraucht werden,
+und es erh&ouml;ht sich insgesamt die Startzeit des Programms beim
+Testen. F&uuml;r ein minimales Rich Client Platform Projekt sind
+nur die folgenden Plugins n&ouml;tig. ACHTUNG: Die Liste wird sich
+im Lauf der Entwicklung nat&uuml;rlich verl&auml;ngern, aber man kann sie
+als Ausgangspunkt f&uuml;r eine minimale Liste von Plugins w&auml;hlen.
+Die Auswahl trifft man im "Run-&gt;Debug"-Dialog unter der Lasche
+"Plugins and Fragments". Dort w&auml;hlt man "Choose plugins and
+fragments to launch from list" und w&auml;hlt dann alle auﬂer den
+folgenden Plugins ab (es sei denn man weiﬂ, dass es ben&ouml;tigt
+wird):
+</p>
+
+<p>
+org.eclipse.core.runtime <br>
+org.eclipse.core.runtime.compatibility <br>
+org.eclipse.help <br>
+org.eclipse.jface <br>
+org.eclipse.osgi <br>
+org.eclipse.osgi.services <br>
+org.eclipse.osgi.util <br>
+org.eclipse.swt <br>
+org.eclipse.swt.win32 (Windows) bzw. org.eclipse.swt.gtk (Linux) <br>
+org.eclipse.ui <br>
+org.eclipse.ui.workbench <br>
+org.eclipse.update.configurator<br><br>
+</p>
+
+<a href="#anfang">Seitenanfang</a>
+</body>
+</html>
