@@ -2,8 +2,24 @@ Das vorliegende Dokument dient der Fixierung von Projektrichtlinien,
 deren Vereinbarung sich im Lauf der Projektarbeit als sinnvoll
 erwiesen hat. 
 
-CVS-Einstellungen
-~~~~~~~~~~~~~~~~~
+
+Inhalt: 
+1.  CVS-Einstellungen
+2.  Anlegen eines neuen Java-Projektes
+2.1 Erstellen des Projektes in der Java-Perspektive
+2.2 Einchecken des Projektes, Auswahl des Repositories
+2.3 Einchecken des Projektes, Auswahl des richtigen Verzeichnisses
+2.4 Committen (ohne .project und .classpath!)
+3.  Auschecken eines Java-(Plugin-)Projektes
+3.1 Projektverzeichnis auswählen
+3.2 Als Java-Projekt auschecken
+3.3 Plugin-Javadatei löschen
+3.4 .project, .classpath und .cvsignore in .cvsignore aufnehmen
+3.5 Projekt übersetzen und starten
+
+
+1. CVS-Einstellungen
+~~~~~~~~~~~~~~~~~~~~
 Um mit Eclipse direkt auf dem Repository arbeiten zu können,
 muss man eine "Repository location" konfigurieren. Dies kann
 beispielsweise in der CVS-Perspektive über das Kontextmenü
@@ -17,19 +33,19 @@ Password: <Berlios-Passwort>
 Connection type: pserver
 [X] Use default port
 
-Anlegen eines neuen Java-Projektes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+2. Anlegen eines neuen Java-Projektes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Java-Projekte sind im Gnogito-Repository an einer bestimmten Stelle
 abgelegt. Damit hier die Ordnung gewahrt wird, ist beim Anlegen eines
 neuen Projektes im Repository die folgende Schrittfolge einzuhalten.
 
-1. Erstellen des Projektes in der Java-Perspektive
-==================================================
+2.1 Erstellen des Projektes in der Java-Perspektive
+===================================================
 Zunächst erstellt man sein neues Projekt in der Java-Perspektive,
 bis es einen Status erreicht, den man einchecken möchte.
 
-2. Einchecken des Projektes, Auswahl des Repositories
-=====================================================
+2.2 Einchecken des Projektes, Auswahl des Repositories
+======================================================
 Nun wird das Projekt im "Package Explorer" selektiert. Über das
 Kontextmenü wird "Team -> Share Project". Wenn das Gnogito bereits
 einmal verwendet wurde, taucht es im darauf folgenden Dialog in
@@ -42,8 +58,8 @@ noch an anderer Stelle zu besprechen sein. Nehmen wir vorläufig an,
 das Repository wurde bereits verwendet und nun ausgewählt. Wir
 bestätigen das mit "Next".
 
-3. Einchecken des Projektes, Auswahl des richtigen Verzeichnisses
-=================================================================
+2.3 Einchecken des Projektes, Auswahl des richtigen Verzeichnisses
+==================================================================
 Der nächste Schritt ist besonders wichtig. Werden hier Fehler gemacht,
 so resultiert dies in fälschlich angelegten Verzeichnissen im
 Repository, die bekanntermaßen nicht wieder löschbar sind. Also bitte
@@ -62,8 +78,8 @@ das Modul ergibt:
 
 Danach mittels "Next" und dann "Finish" bestätigen.
 
-4. Committen (ohne .project und .classpath!)
-============================================
+2.4 Committen (ohne .project und .classpath!)
+=============================================
 Durch die bisherigen Arbeitsschritte wurde lediglich ein neues
 Verzeichnis <projektverzeichnisname> in das Repository eingefügt.
 Gleichzeitig wurde das Java-Projekt selbst zu einer CVS-Arbeitskopie.
@@ -92,8 +108,8 @@ View"-Perspektive geleert haben. Damit ist das neue Java-Projekt
 vollständig und an der richtigen Stelle im Repository angekommen.
 
 
-Auschecken eines Java-(Plugin-)Projektes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3. Auschecken eines Java-(Plugin-)Projektes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Java-Projekte werden im Repository ohne die .project und .classfile
 Dateien abgespeichert, da diese Rechnerspezifisch sind und ansonsten
 jeweils nach einem Checkout angepaßt werden müssten. Daher ist beim
@@ -106,16 +122,16 @@ zusätzlichen Klassen in das Projekt eingebunden werden müssen. Wenn
 man beim Auschecken die richtigen Schritte vollzieht, so bindet
 Eclipse diese Klassen jedoch ganz automatisch ein.
 
-1. Projektverzeichnis auswählen
-===============================
+3.1 Projektverzeichnis auswählen
+================================
 Alle Java-Projekte werden im Repository unter /gnogito/javaprojekte
 abgelegt. Die darunter befindlichen Verzeichnisse sind jeweils
 Wurzelverzeichnisse eines Java-Projektes. Will man also ein Projekt
 in den Eclipse-Workspace auschecken, so ist zunächst in der
 CVS-Perspektive ein solches Projektverzeichnis auszuwählen.
 
-2. Als Java-Projekt auschecken
-==============================
+3.2 Als Java-Projekt auschecken
+===============================
 Nun ist im Kontextmenü "Check out as" auszuwählen. Im darauf folgenden
 Dialog muss die Checkbox "Check out as a project configured using the
 New Project Wizard" selektiert sein. Mittels "Finish" wird bestätigt -
@@ -139,8 +155,8 @@ werden, alle anderen Angaben werden wie vorgeschlagen übernommen.
 Mittels "Finish" bestätigen führt zum endgültigen Anlegen des
 Projektes, das nun sofort gestartet werden kann.
 
-3. Plugin-Javadatei löschen
-===========================
+3.3 Plugin-Javadatei löschen
+============================
 Durch den Code-Generation Wizard wurde bei dem obigen Prozess eine
 neue Datei mit dem Namen <projektname>Plugin.java angelegt. Dabei
 handelt es sich um eine überflüssige Datei, die unter Eclipse 2.x
@@ -148,8 +164,8 @@ noch notwendig war. Mit Eclipse 3.x ist es nicht mehr nötig, ein
 Plugin von der Klasse Plugin abzuleiten. Daher kann und soll diese
 generierte Datei nach dem Auschecken gelöscht werden.
 
-4. .project, .classpath und .cvsignore in .cvsignore aufnehmen
-==============================================================
+3.4 .project, .classpath und .cvsignore in .cvsignore aufnehmen
+===============================================================
 Wechselt man in die "Synchronize View" Perspektive, so bekommt man
 alle Dateien angezeigt, die noch mit dem CVS synchronisiert werden
 müssen. Hat man die <projektname>Plugin.java bereits gelöscht, so
@@ -163,8 +179,8 @@ aufnimmt. Nach diesen Schritten sollte nun die "Synchronize View"-
 Perspektive leer sein. Andernfalls ist vermutlich etwas schief
 gelaufen!
 
-5. Projekt übersetzen und starten
-=================================
+3.5 Projekt übersetzen und starten
+==================================
 Um die Applikation zu starten, legt man zunächst über "Run->Debug ..."
 eine neue Konfiguration im "Run-time Workbench"-Bereich an. Hier ist
 zu beachten, dass man an die "Program Arguments" ggf. den -application
