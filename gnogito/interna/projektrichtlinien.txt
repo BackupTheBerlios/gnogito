@@ -139,7 +139,31 @@ werden, alle anderen Angaben werden wie vorgeschlagen übernommen.
 Mittels "Finish" bestätigen führt zum endgültigen Anlegen des
 Projektes, das nun sofort gestartet werden kann.
 
-3. Projekt übersetzen und starten
+3. Plugin-Javadatei löschen
+===========================
+Durch den Code-Generation Wizard wurde bei dem obigen Prozess eine
+neue Datei mit dem Namen <projektname>Plugin.java angelegt. Dabei
+handelt es sich um eine überflüssige Datei, die unter Eclipse 2.x
+noch notwendig war. Mit Eclipse 3.x ist es nicht mehr nötig, ein
+Plugin von der Klasse Plugin abzuleiten. Daher kann und soll diese
+generierte Datei nach dem Auschecken gelöscht werden.
+
+4. .project, .classpath und .cvsignore in .cvsignore aufnehmen
+==============================================================
+Wechselt man in die "Synchronize View" Perspektive, so bekommt man
+alle Dateien angezeigt, die noch mit dem CVS synchronisiert werden
+müssen. Hat man die <projektname>Plugin.java bereits gelöscht, so
+ist diese hier schon verschwunden. Dann verbleiben nach einem 
+Auschecken aber immernoch die .project und die .classpath Datei.
+Diese kann man markieren und über das Kontextmenü in die .cvsignore
+Datei aufnehmen (denn man will diese Dateien ja auch künftig nicht
+in das CVS aufnehmen). Dabei wird dann die .cvsignore Datei erst
+angelegt, woraufhin man auch diese selbst noch in sich selbst
+aufnimmt. Nach diesen Schritten sollte nun die "Synchronize View"-
+Perspektive leer sein. Andernfalls ist vermutlich etwas schief
+gelaufen!
+
+5. Projekt übersetzen und starten
 =================================
 Um die Applikation zu starten, legt man zunächst über "Run->Debug ..."
 eine neue Konfiguration im "Run-time Workbench"-Bereich an. Hier ist
