@@ -28,7 +28,6 @@ public class GnogitoWorkbenchAdvisor extends WorkbenchAdvisor {
 	public void preWindowOpen(IWorkbenchWindowConfigurer configurer) {
 		super.preWindowOpen(configurer);
 		configurer.setShowCoolBar(true);
-		configurer.setShowShortcutBar(true);
 		configurer.setShowStatusLine(true);
 		configurer.setShowMenuBar(true);
 	}
