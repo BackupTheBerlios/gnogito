@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin
+   id="gnogitoworkbench"
+   name="GnogitoWorkbench"
+   version="0.0.1"
+   provider-name="KleineBrothers">
+
+   <runtime>
+      <library name="gnogitoworkbench.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+   <requires>
+      <import plugin="org.eclipse.core.runtime.compatibility"/>
+      <import plugin="org.eclipse.ui"/>
+   </requires>
+
+
+   <extension
+         id="GnogitoWorkbench"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="gnogitoworkbench.GnogitoWorkbench">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="GnogitoPerspective"
+            class="gnogitoworkbench.GnogitoPerspective"
+            id="gnogitoworkbench.GnogitoPerspective">
+      </perspective>
+   </extension>
+
+</plugin>
