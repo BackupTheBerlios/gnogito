@@ -1,18 +1,27 @@
 <!DOCTYPE webproject>
 <webproject>
-<project usePreviewPrefix="0" type="Local" previewPrefix="file:file%3A/" newfiles="-//w3c//dtd html 4.01 transitional//en" name="gnogito" encoding="iso 8859-15" >
+<project usePreviewPrefix="0" previewPrefix="file:file%3A" type="Local" newfiles="-//w3c//dtd html 4.01 transitional//en" name="gnogito" encoding="iso 8859-15" >
 <upload/>
 <author>Matthias Kleine</author>
 <email>kleine_matthias@gmx.de</email>
 <defaultDTD>-//w3c//dtd html 4.01 transitional//en</defaultDTD>
 <item url="images/" />
-<item modified_time="1076948074" url="images/gnogito-logo-with-background.gif" />
-<item url="images/.xvpics/" />
 <item modified_time="1076948074" url="images/gnogito-logo.gif" />
-<item modified_time="1076948074" url="images/.xvpics/gnogito-logo-with-background.gif" />
 <item modified_time="1076950477" url="index.html" />
 <templates>templates/</templates>
 <toolbars>toolbars/</toolbars>
 <item modified_time="1076950477" url="index.html" />
+<item url="CVS/" />
+<item url="CVS/Entries" />
+<item url="CVS/Repository" />
+<item url="CVS/Root" />
+<item url="images/CVS/" />
+<item url="images/CVS/Entries" />
+<item url="images/CVS/Repository" />
+<item url="images/CVS/Root" />
+<item url="images/borderline.gif" />
+<item url="images/descartes.gif" />
+<item url="gnogito.webprj" />
+<item url="blog.html" />
 </project>
 </webproject>
