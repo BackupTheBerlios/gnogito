@@ -10,7 +10,7 @@
   <XMI.metamodel xmi.name="UML" href="UML.xml" xmi.version="1.3" />
  </XMI.header>
  <XMI.content>
-  <docsettings viewid="368" documentation="" uniqueid="1062" />
+  <docsettings viewid="368" documentation="" uniqueid="1076" />
   <UML:Model>
    <UML:DataType stereotype="Datentyp" visibility="public" xmi.id="2" name="int" />
    <UML:DataType stereotype="Datentyp" visibility="public" xmi.id="3" name="char" />
@@ -35,11 +35,11 @@
    <UML:UseCase visibility="public" xmi.id="24" name="Begriff kopieren" />
    <UML:UseCase visibility="public" xmi.id="25" name="Begriffsposition ändern" />
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="27" name="Wissenspaket" >
-    <UML:Attribute visibility="public" xmi.id="103" value="" type="string" name="name" />
+    <UML:Attribute visibility="private" xmi.id="103" value="" type="string" name="identifier" />
    </UML:Class>
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="28" name="Wissensstruktur-orig" />
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="29" name="Wissensstruktur" >
-    <UML:Attribute visibility="public" xmi.id="565" value="" type="Begriff" name="name" />
+    <UML:Attribute visibility="private" xmi.id="565" value="" type="Begriff" name="name" />
    </UML:Class>
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="30" name="Wissensinhalt" />
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="31" name="Begriffsstruktur" />
@@ -50,9 +50,7 @@
    <UML:Component executable="0" visibility="public" xmi.id="48" name="Plugin1Ko" />
    <UML:Component executable="0" visibility="public" xmi.id="49" name="Plugin2Ko" />
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="106" name="Metainformation" >
-    <UML:Attribute visibility="public" xmi.id="108" value="" type="string" name="kategorien" />
-    <UML:Attribute visibility="public" xmi.id="110" value="" type="string" name="schluesselworte" />
-    <UML:Attribute visibility="public" xmi.id="109" value="" type="string" name="historie" />
+    <UML:Attribute visibility="private" xmi.id="1074" value="" type="unbekannt" name="xmldatei" />
    </UML:Class>
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="220" name="Diagramm" />
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="271" name="Laufzeitsystem" />
@@ -67,7 +65,9 @@
    <UML:Interface stereotype="Schnittstelle" visibility="public" xmi.id="382" isAbstract="true" name="Lernbar" />
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="389" name="Gesamtwissen" />
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="390" name="Benutzer" />
-   <UML:Class stereotype="Klasse" visibility="public" xmi.id="391" name="Repository" />
+   <UML:Class stereotype="Klasse" visibility="public" xmi.id="391" name="Repository" >
+    <UML:Attribute visibility="private" xmi.id="1076" value="" type="unbekannt" name="adresse" />
+   </UML:Class>
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="393" name="Lernstrategie" />
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="484" name="Kalendertag" />
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="485" name="Lerninformation" />
@@ -80,6 +80,10 @@
    <UML:DataType stereotype="Datentyp" visibility="public" xmi.id="783" name="byte" />
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="886" name="Containerstruktur" />
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="887" name="Endstruktur" />
+   <UML:Class stereotype="Klasse" visibility="public" xmi.id="1065" name="Kategorie" />
+   <UML:Class stereotype="Klasse" visibility="public" xmi.id="1067" name="Schluesselwort" />
+   <UML:Class stereotype="Klasse" visibility="public" xmi.id="1071" name="Historie" />
+   <UML:DataType stereotype="Datentyp" visibility="public" xmi.id="1075" name="unbekannt" />
    <UML:Association visibility="public" xmi.id="36" >
     <UML:Association.connection>
      <UML:AssociationEndRole visibility="public" aggregation="shared" type="27" multiplicity="1" />
@@ -101,7 +105,7 @@
    <UML:Generalization child="31" visibility="public" xmi.id="39" parent="28" />
    <UML:Generalization child="32" visibility="public" xmi.id="40" parent="29" />
    <UML:Generalization child="33" visibility="public" xmi.id="41" parent="30" />
-   <UML:Association visibility="public" xmi.id="156" >
+   <UML:Association visibility="public" xmi.id="156" name="beschreibt" >
     <UML:Association.connection>
      <UML:AssociationEndRole visibility="public" aggregation="composite" type="27" />
      <UML:AssociationEndRole visibility="public" type="106" multiplicity="1" />
@@ -292,8 +296,8 @@
      <UML:ClassWidget usesdiagramfillcolour="1" width="97" showattsigs="601" usesdiagramusefillcolour="1" x="791" linecolour="none" y="489" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="31" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="1" width="59" showattsigs="601" usesdiagramusefillcolour="1" x="803" linecolour="none" y="582" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="32" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="1" width="126" showattsigs="601" usesdiagramusefillcolour="1" x="794" linecolour="none" y="669" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="33" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <UML:ClassWidget usesdiagramfillcolour="0" width="139" showattsigs="601" usesdiagramusefillcolour="0" x="785" linecolour="#ff0000" y="369" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="67" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="106" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <UML:ClassWidget usesdiagramfillcolour="0" width="93" showattsigs="601" usesdiagramusefillcolour="0" x="556" linecolour="#ff0000" y="369" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="37" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="27" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="0" width="132" showattsigs="601" usesdiagramusefillcolour="0" x="785" linecolour="#ff0000" y="369" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="37" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="106" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="0" width="105" showattsigs="601" usesdiagramusefillcolour="0" x="556" linecolour="#ff0000" y="369" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="37" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="27" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="0" width="126" showattsigs="601" usesdiagramusefillcolour="0" x="571" linecolour="#ff0000" y="489" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="28" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="1" width="100" showattsigs="601" usesdiagramusefillcolour="1" x="568" linecolour="none" y="582" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="37" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="29" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="1" width="90" showattsigs="601" usesdiagramusefillcolour="1" x="574" linecolour="none" y="669" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="30" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
@@ -333,12 +337,12 @@ Ideensammlung." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
     </widgets>
     <messages/>
     <associations>
-     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="28" widgetaid="27" xmi.id="36" >
+     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="28" widgetaid="27" xmi.id="36" >
       <linepath>
-       <startpoint startx="602" starty="406" />
+       <startpoint startx="626" starty="406" />
        <endpoint endx="634" endy="489" />
       </linepath>
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="885" linecolour="none" y="408" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="36" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="891" linecolour="none" y="408" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="36" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
       <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="935" linecolour="none" y="468" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="36" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="3" indexb="1" widgetbid="29" widgetaid="28" xmi.id="37" >
@@ -347,15 +351,15 @@ Ideensammlung." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
        <endpoint endx="601" endy="582" />
       </linepath>
       <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="773" linecolour="none" y="543" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="37" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="2312" linecolour="none" y="542" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="37" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="2984" linecolour="none" y="542" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="37" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
-     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="3" indexb="1" widgetbid="30" widgetaid="29" xmi.id="38" >
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="3" indexb="2" widgetbid="30" widgetaid="29" xmi.id="38" >
       <linepath>
        <startpoint startx="618" starty="619" />
-       <endpoint endx="604" endy="669" />
+       <endpoint endx="634" endy="669" />
       </linepath>
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="27" usesdiagramusefillcolour="1" x="-42" linecolour="none" y="621" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="38" text="1..*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="2390" linecolour="none" y="648" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="38" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="27" usesdiagramusefillcolour="1" x="-73" linecolour="none" y="621" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="38" text="1..*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="2435" linecolour="none" y="648" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="38" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="28" widgetaid="31" xmi.id="39" >
       <linepath>
@@ -377,14 +381,14 @@ Ideensammlung." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="106" widgetaid="27" xmi.id="156" >
       <linepath>
-       <startpoint startx="649" starty="387" />
-       <endpoint endx="785" endy="402" />
+       <startpoint startx="661" starty="387" />
+       <endpoint endx="785" endy="387" />
       </linepath>
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="2" indexb="1" widgetbid="27" widgetaid="271" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
        <startpoint startx="623" starty="318" />
-       <endpoint endx="602" endy="369" />
+       <endpoint endx="608" endy="369" />
       </linepath>
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="7" indexa="1" visibilityB="200" totalcountb="2" indexb="1" widgetbid="272" widgetaid="271" roleBdoc="" roleAdoc="" type="513" changeabilityA="900" changeabilityB="900" visibilityA="200" >
@@ -423,15 +427,15 @@ Ideensammlung." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
        <endpoint endx="995" endy="197" />
       </linepath>
      </UML:AssocWidget>
-     <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="3" indexb="2" widgetbid="280" widgetaid="30" xmi.id="281" >
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="3" indexb="2" widgetbid="280" widgetaid="30" xmi.id="281" >
       <linepath>
-       <startpoint startx="634" starty="669" />
+       <startpoint startx="604" starty="669" />
        <endpoint endx="404" endy="519" />
       </linepath>
      </UML:AssocWidget>
-     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="3" indexb="2" widgetbid="280" widgetaid="27" xmi.id="282" >
+     <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="3" indexb="2" widgetbid="280" widgetaid="27" xmi.id="282" >
       <linepath>
-       <startpoint startx="556" starty="387" />
+       <startpoint startx="591" starty="406" />
        <endpoint endx="404" endy="482" />
       </linepath>
      </UML:AssocWidget>
@@ -525,13 +529,13 @@ usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
    <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" zoom="64" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1241" snapy="10" showatts="1" xmi.id="368" documentation="Das Domänen-Klassenmodell beschreibt nur die Gegenstände des Problembereichs ohne jegliche Realisierungsaspekte. Auch Operationen werden hier ausgespart." type="402" showops="1" showpackage="0" name="Domänen-Klassenmodell" localid="30000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="939" >
     <widgets>
      <UML:ClassWidget usesdiagramfillcolour="0" width="59" showattsigs="601" usesdiagramusefillcolour="0" x="774" linecolour="#ff0000" y="534" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="381" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <UML:ClassWidget usesdiagramfillcolour="1" width="87" showattsigs="601" usesdiagramusefillcolour="1" x="968" linecolour="none" y="199" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="389" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="1" width="87" showattsigs="601" usesdiagramusefillcolour="1" x="968" linecolour="none" y="206" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="389" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="1" width="59" showattsigs="601" usesdiagramusefillcolour="1" x="982" linecolour="none" y="534" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="390" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <UML:ClassWidget usesdiagramfillcolour="1" width="67" showattsigs="601" usesdiagramusefillcolour="1" x="375" linecolour="none" y="75" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="391" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="0" width="124" showattsigs="601" usesdiagramusefillcolour="0" x="348" linecolour="#ff0000" y="75" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="37" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="391" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="1" width="82" showattsigs="601" usesdiagramusefillcolour="1" x="970" linecolour="none" y="664" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="393" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="0" width="77" showattsigs="601" usesdiagramusefillcolour="0" x="924" linecolour="#ff0000" y="434" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="484" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="0" width="99" showattsigs="601" usesdiagramusefillcolour="0" x="754" linecolour="#ff0000" y="435" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="485" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <UML:ClassWidget usesdiagramfillcolour="0" width="139" showattsigs="601" usesdiagramusefillcolour="0" x="86" linecolour="#ff0000" y="179" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="67" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="106" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="0" width="132" showattsigs="601" usesdiagramusefillcolour="0" x="42" linecolour="#ff0000" y="204" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="37" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="106" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="0" width="90" showattsigs="601" usesdiagramusefillcolour="0" x="397" linecolour="#ff0000" y="355" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="30" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="1" width="67" showattsigs="601" usesdiagramusefillcolour="1" x="657" linecolour="none" y="720" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="220" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="0" width="59" showattsigs="601" usesdiagramusefillcolour="0" x="260" linecolour="#ff0000" y="721" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="574" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
@@ -539,7 +543,7 @@ usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="0" width="75" showattsigs="601" usesdiagramusefillcolour="0" x="481" linecolour="#ff0000" y="721" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="578" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="1" width="59" showattsigs="601" usesdiagramusefillcolour="1" x="411" linecolour="none" y="722" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="636" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <interfacewidget usesdiagramfillcolour="1" width="94" usesdiagramusefillcolour="1" x="592" linecolour="none" y="431" drawascircle="0" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="37" usefillcolor="1" isinstance="0" xmi.id="382" showoperations="1" showpackage="0" showscope="1" font="Sans Serif,10,-1,5,75,1,0,0,0,0" />
-     <UML:ClassWidget usesdiagramfillcolour="0" width="93" showattsigs="601" usesdiagramusefillcolour="0" x="362" linecolour="#ff0000" y="195" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="37" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="27" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="0" width="105" showattsigs="601" usesdiagramusefillcolour="0" x="359" linecolour="#ff0000" y="204" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="37" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="27" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="0" width="100" showattsigs="601" usesdiagramusefillcolour="0" x="360" linecolour="#ff0000" y="468" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="37" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="29" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="1" width="77" showattsigs="601" usesdiagramusefillcolour="1" x="251" linecolour="none" y="586" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="887" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="1" width="110" showattsigs="601" usesdiagramusefillcolour="1" x="482" linecolour="none" y="586" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="886" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
@@ -577,21 +581,25 @@ usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="106" widgetaid="27" xmi.id="156" >
       <linepath>
-       <startpoint startx="362" starty="213" />
-       <endpoint endx="225" endy="212" />
+       <startpoint startx="359" starty="222" />
+       <endpoint endx="174" endy="222" />
       </linepath>
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="227" linecolour="none" y="191" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="156" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="59" usesdiagramusefillcolour="1" x="266" linecolour="none" y="222" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="106" text="beschreibt" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="349" linecolour="none" y="201" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="156" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="176" linecolour="none" y="201" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="156" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="341" linecolour="none" y="224" instancename="" posttext="" usesdiagramlinecolour="1" role="709" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="156" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="176" linecolour="none" y="224" instancename="" posttext="" usesdiagramlinecolour="1" role="710" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="156" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="3" indexa="1" visibilityB="200" totalcountb="3" indexb="1" widgetbid="29" widgetaid="27" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="393" starty="232" />
+       <startpoint startx="394" starty="241" />
        <endpoint endx="393" endy="468" />
       </linepath>
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="393" linecolour="none" y="350" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1006" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="395" linecolour="none" y="234" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1009" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="395" linecolour="none" y="447" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1010" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="375" linecolour="none" y="234" instancename="" posttext="" usesdiagramlinecolour="1" role="709" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="1007" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="375" linecolour="none" y="447" instancename="" posttext="" usesdiagramlinecolour="1" role="710" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="1008" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="381" linecolour="none" y="343" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1006" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="396" linecolour="none" y="243" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1009" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="380" linecolour="none" y="447" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1010" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="376" linecolour="none" y="243" instancename="" posttext="" usesdiagramlinecolour="1" role="709" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="1007" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="395" linecolour="none" y="447" instancename="" posttext="" usesdiagramlinecolour="1" role="710" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="1008" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="3" indexb="2" widgetbid="29" widgetaid="886" xmi.id="890" >
       <linepath>
@@ -684,7 +692,7 @@ usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="382" widgetaid="27" xmi.id="942" >
       <linepath>
-       <startpoint startx="424" starty="232" />
+       <startpoint startx="429" starty="241" />
        <endpoint endx="639" endy="431" />
       </linepath>
      </UML:AssocWidget>
@@ -698,32 +706,32 @@ usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="27" widgetaid="391" xmi.id="983" >
       <linepath>
-       <startpoint startx="408" starty="104" />
-       <endpoint endx="408" endy="195" />
+       <startpoint startx="410" starty="112" />
+       <endpoint endx="411" endy="204" />
       </linepath>
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="49" usesdiagramusefillcolour="1" x="408" linecolour="none" y="149" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="27" text="enthaelt" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="410" linecolour="none" y="106" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="983" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="410" linecolour="none" y="174" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="983" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="390" linecolour="none" y="106" instancename="" posttext="" usesdiagramlinecolour="1" role="709" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="983" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="390" linecolour="none" y="174" instancename="" posttext="" usesdiagramlinecolour="1" role="710" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="983" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="49" usesdiagramusefillcolour="1" x="466" linecolour="none" y="157" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="27" text="enthaelt" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="393" linecolour="none" y="114" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="983" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="413" linecolour="none" y="183" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="983" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="412" linecolour="none" y="114" instancename="" posttext="" usesdiagramlinecolour="1" role="709" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="983" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="393" linecolour="none" y="183" instancename="" posttext="" usesdiagramlinecolour="1" role="710" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="983" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="27" widgetaid="389" xmi.id="984" >
       <linepath>
-       <startpoint startx="968" starty="213" />
-       <endpoint endx="455" endy="213" />
+       <startpoint startx="968" starty="220" />
+       <endpoint endx="464" endy="222" />
       </linepath>
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="183" usesdiagramusefillcolour="1" x="711" linecolour="none" y="213" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="27" text="ist nur ein spezielles Wissenspaket" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="183" usesdiagramusefillcolour="1" x="716" linecolour="none" y="217" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="27" text="ist nur ein spezielles Wissenspaket" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="389" widgetaid="390" xmi.id="1061" >
       <linepath>
        <startpoint startx="1011" starty="534" />
-       <endpoint endx="1011" endy="228" />
+       <endpoint endx="1011" endy="235" />
       </linepath>
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="81" usesdiagramusefillcolour="1" x="1011" linecolour="none" y="381" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="389" text="verfuegt ueber" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="81" usesdiagramusefillcolour="1" x="1011" linecolour="none" y="384" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="389" text="verfuegt ueber" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
       <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="1013" linecolour="none" y="513" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1061" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="1013" linecolour="none" y="230" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1061" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="1013" linecolour="none" y="237" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1061" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
       <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="993" linecolour="none" y="513" instancename="" posttext="" usesdiagramlinecolour="1" role="709" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="1061" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="993" linecolour="none" y="230" instancename="" posttext="" usesdiagramlinecolour="1" role="710" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="1061" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="993" linecolour="none" y="237" instancename="" posttext="" usesdiagramlinecolour="1" role="710" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="1061" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="393" widgetaid="390" xmi.id="1062" >
       <linepath>
@@ -783,8 +791,8 @@ usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
    </diagram>
    <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" zoom="81" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1000" snapy="10" showatts="1" xmi.id="539" documentation="" type="402" showops="1" showpackage="0" name="Wissensmodell" localid="30000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="762" >
     <widgets>
-     <UML:ClassWidget usesdiagramfillcolour="0" width="139" showattsigs="601" usesdiagramusefillcolour="0" x="84" linecolour="#ff0000" y="145" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="67" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="106" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <UML:ClassWidget usesdiagramfillcolour="0" width="93" showattsigs="601" usesdiagramusefillcolour="0" x="348" linecolour="#ff0000" y="19" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="37" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="27" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="0" width="132" showattsigs="601" usesdiagramusefillcolour="0" x="84" linecolour="#ff0000" y="145" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="37" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="106" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="0" width="105" showattsigs="601" usesdiagramusefillcolour="0" x="348" linecolour="#ff0000" y="19" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="37" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="27" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="0" width="100" showattsigs="601" usesdiagramusefillcolour="0" x="354" linecolour="#ff0000" y="290" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="37" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="29" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="0" width="90" showattsigs="601" usesdiagramusefillcolour="0" x="359" linecolour="#ff0000" y="134" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="30" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
      <UML:ClassWidget usesdiagramfillcolour="1" width="67" showattsigs="601" usesdiagramusefillcolour="1" x="651" linecolour="none" y="542" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="220" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
@@ -801,19 +809,19 @@ usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="106" widgetaid="27" xmi.id="156" >
       <linepath>
        <startpoint startx="348" starty="37" />
-       <endpoint endx="153" endy="145" />
+       <endpoint endx="150" endy="145" />
       </linepath>
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="3" indexa="1" visibilityB="200" totalcountb="4" indexb="1" widgetbid="29" widgetaid="27" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="379" starty="56" />
+       <startpoint startx="383" starty="56" />
        <endpoint endx="379" endy="290" />
       </linepath>
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="422" linecolour="none" y="241" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1021" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="399" linecolour="none" y="29" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1024" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="406" linecolour="none" y="288" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1025" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="411" linecolour="none" y="75" instancename="" posttext="" usesdiagramlinecolour="1" role="709" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="1022" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="386" linecolour="none" y="246" instancename="" posttext="" usesdiagramlinecolour="1" role="710" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="1023" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="424" linecolour="none" y="241" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1021" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="403" linecolour="none" y="29" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1024" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="398" linecolour="none" y="288" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="1025" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="415" linecolour="none" y="75" instancename="" posttext="" usesdiagramlinecolour="1" role="709" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="1022" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="16" usesdiagramusefillcolour="1" x="406" linecolour="none" y="246" instancename="" posttext="" usesdiagramlinecolour="1" role="710" fillcolour="none" height="19" usefillcolor="1" pretext="+" isinstance="0" xmi.id="1023" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="3" indexa="1" totalcountb="3" indexb="2" widgetbid="29" widgetaid="886" xmi.id="890" >
       <linepath>
@@ -901,7 +909,7 @@ usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="3" indexa="2" totalcountb="2" indexb="1" widgetbid="382" widgetaid="27" xmi.id="942" >
       <linepath>
-       <startpoint startx="410" starty="56" />
+       <startpoint startx="418" starty="56" />
        <endpoint endx="608" endy="129" />
       </linepath>
      </UML:AssocWidget>
@@ -1033,27 +1041,30 @@ usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      <listitem open="1" type="813" id="220" label="Diagramm" />
      <listitem open="1" type="813" id="887" label="Endstruktur" />
      <listitem open="1" type="813" id="389" label="Gesamtwissen" />
+     <listitem open="1" type="813" id="1071" label="Historie" />
      <listitem open="1" type="813" id="273" label="I18n" />
      <listitem open="1" type="813" id="484" label="Kalendertag" />
      <listitem open="1" type="813" id="574" label="Kartei" />
+     <listitem open="1" type="813" id="1065" label="Kategorie" />
      <listitem open="1" type="813" id="271" label="Laufzeitsystem" />
      <listitem open="1" type="813" id="485" label="Lerninformation" />
      <listitem open="1" type="813" id="381" label="Lernplan" />
      <listitem open="1" type="813" id="393" label="Lernstrategie" />
-     <listitem open="0" type="813" id="106" label="Metainformation" >
-      <listitem open="0" type="814" id="109" label="historie" />
-      <listitem open="0" type="814" id="108" label="kategorien" />
-      <listitem open="0" type="814" id="110" label="schluesselworte" />
+     <listitem open="1" type="813" id="106" label="Metainformation" >
+      <listitem open="0" type="814" id="1074" label="xmldatei" />
      </listitem>
      <listitem open="1" type="813" id="581" label="Ontologie" />
      <listitem open="1" type="813" id="277" label="Pluginverwaltung" />
-     <listitem open="1" type="813" id="391" label="Repository" />
+     <listitem open="1" type="813" id="391" label="Repository" >
+      <listitem open="0" type="814" id="1076" label="adresse" />
+     </listitem>
      <listitem open="1" type="813" id="286" label="Ressourcenverwaltung" />
+     <listitem open="1" type="813" id="1067" label="Schluesselwort" />
      <listitem open="1" type="813" id="276" label="Sitzungskontrolle" />
      <listitem open="1" type="813" id="636" label="Tabelle" />
      <listitem open="1" type="813" id="30" label="Wissensinhalt" />
-     <listitem open="0" type="813" id="27" label="Wissenspaket" >
-      <listitem open="0" type="814" id="103" label="name" />
+     <listitem open="1" type="813" id="27" label="Wissenspaket" >
+      <listitem open="0" type="814" id="103" label="identifier" />
      </listitem>
      <listitem open="1" type="813" id="29" label="Wissensstruktur" >
       <listitem open="0" type="814" id="565" label="name" />
@@ -1062,7 +1073,7 @@ usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      <listitem open="1" type="813" id="275" label="XMLparser" />
      <listitem open="1" type="817" id="382" label="Lernbar" />
      <listitem open="1" type="817" id="280" label="Ressource" />
-     <listitem open="1" type="830" id="-1" label="Datentypen" >
+     <listitem open="0" type="830" id="-1" label="Datentypen" >
       <listitem open="1" type="829" id="4" label="bool" />
       <listitem open="1" type="829" id="782" label="boolean" />
       <listitem open="1" type="829" id="783" label="byte" />
@@ -1073,6 +1084,7 @@ usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
       <listitem open="1" type="829" id="7" label="long" />
       <listitem open="1" type="829" id="8" label="short" />
       <listitem open="1" type="829" id="9" label="string" />
+      <listitem open="1" type="829" id="1075" label="unbekannt" />
      </listitem>
     </listitem>
     <listitem open="0" type="802" id="-1" label="Anwendungsfallansicht" >
