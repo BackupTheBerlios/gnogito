@@ -2,6 +2,21 @@ Das vorliegende Dokument dient der Fixierung von Projektrichtlinien,
 deren Vereinbarung sich im Lauf der Projektarbeit als sinnvoll
 erwiesen hat. 
 
+CVS-Einstellungen
+~~~~~~~~~~~~~~~~~
+Um mit Eclipse direkt auf dem Repository arbeiten zu können,
+muss man eine "Repository location" konfigurieren. Dies kann
+beispielsweise in der CVS-Perspektive über das Kontextmenü
+geschehen. Es öffnet sich der "Add CVS Repository"-Dialog,
+in dem die Felder wie folgt zu belegen sind:
+
+Host: cvs.berlios.de
+Repository path: /cvsroot/gnogito
+User: <Berlios-Benutzername>
+Password: <Berlios-Passwort>
+Connection type: pserver
+[X] Use default port
+
 Anlegen eines neuen Java-Projektes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Java-Projekte sind im Gnogito-Repository an einer bestimmten Stelle
