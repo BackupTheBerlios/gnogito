@@ -92,34 +92,59 @@ View"-Perspektive geleert haben. Damit ist das neue Java-Projekt
 vollständig und an der richtigen Stelle im Repository angekommen.
 
 
-Auschecken eines Java-Projektes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Auschecken eines Java-(Plugin-)Projektes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Java-Projekte werden im Repository ohne die .project und .classfile
 Dateien abgespeichert, da diese Rechnerspezifisch sind und ansonsten
 jeweils nach einem Checkout angepaßt werden müssten. Daher ist beim
 Auschecken eine bestimmte Schrittfolge einzuhalten, um als Ergebnis
 ein valides Eclipse-Java-Projekt zu erhalten.
 
+Weiterhin muss beachtet werden, dass es sich bei Gnogito um eine
+Plugin-Projekt handelt, da für derartige Projekte eine Reihe von
+zusätzlichen Klassen in das Projekt eingebunden werden müssen. Wenn
+man beim Auschecken die richtigen Schritte vollzieht, so bindet
+Eclipse diese Klassen jedoch ganz automatisch ein.
+
 1. Projektverzeichnis auswählen
 ===============================
 Alle Java-Projekte werden im Repository unter /gnogito/javaprojekte
 abgelegt. Die darunter befindlichen Verzeichnisse sind jeweils
 Wurzelverzeichnisse eines Java-Projektes. Will man also ein Projekt
-in den Eclipse-Workspace auschecken, so ist zunächst ein solches
-Projektverzeichnis auszuwählen.
+in den Eclipse-Workspace auschecken, so ist zunächst in der
+CVS-Perspektive ein solches Projektverzeichnis auszuwählen.
 
 2. Als Java-Projekt auschecken
 ==============================
 Nun ist im Kontextmenü "Check out as" auszuwählen. Im darauf folgenden
 Dialog muss die Checkbox "Check out as a project configured using the
 New Project Wizard" selektiert sein. Mittels "Finish" wird bestätigt -
-es öffnet sich der "New Project"-Dialog. Hier ist es nun wichtig, in
-der Liste der rechten Seite den Eintrag "Java Project" auszuwählen.
-Dieser Schritt führt letztlich zur Erzeugung lokaler .project und
-.classpath Dateien. Man bestätigt mittels "Next" und muss nun einen
-Projektnamen angeben. Hier sollte der Name des Projektverzeichnisses
-aus dem Repository gewählt werden. Mittels "Next" kommt man in den
-Dialog zur Einstellung einiger Java-Settings. Ist nichts anderes
-bekannt, so kann nun einfach mittels "Finish" bestätigt werden. Danach
-ist das Projekt in der Java-Perspektive sichtbar und kann bearbeitet
-werden.
+es öffnet sich der "New Project"-Dialog. Hier ist es nun wichtig, auf
+der linken Seite zunächst "Plug-in Development" auszuwählen. Daraufhin
+erscheint auf der rechten Seite eine Listen von Auswahlmöglichkeiten,
+von der "Plug-in Project" zu selektieren ist. Dieser Schritt führt 
+letztlich zur Erzeugung lokaler .project und .classpath Dateien sowie
+zum Einbinden der für Plugins notwendigen Klassen in das Projekt. 
+Man bestätigt mittels "Next" und muss nun einen Projektnamen angeben. 
+Hier sollte der Name des Projektverzeichnisses aus dem Repository
+gewählt werden. Mittels "Next" gelangt man in den "Plug-in Projekt
+Structure" Dialog. Hier ist die Checkbox "Create a Java-Project" zu
+aktivieren. Die Namen für Runtime library, Source folder und Java
+builder output können übernommen werden. Das Häkchen "Intended for 
+use with older Eclipse versions" sollte nicht angehakt werden. Mittels
+"Next" geht es in den "Plug-in Code Generators" Dialog. Hier wird
+"Default Plug-in Structure" gewählt. "Next" führt in einem weiteren
+Dialog. Hier können noch die "KleineBrothers" als Provider angegeben
+werden, alle anderen Angaben werden wie vorgeschlagen übernommen.
+Mittels "Finish" bestätigen führt zum endgültigen Anlegen des
+Projektes, das nun sofort gestartet werden kann.
+
+3. Projekt übersetzen und starten
+=================================
+Um die Applikation zu starten, legt man zunächst über "Run->Debug ..."
+eine neue Konfiguration im "Run-time Workbench"-Bereich an. Hier ist
+zu beachten, dass man an die "Program Arguments" ggf. den -application
+Parameter anhängen muss, da ansonsten eine vollständige neue Workbench
+gestartet wird. Man gibt hier den voll qualifizierten Klassennamen
+der Klasse an, welche das Interface IPlatformRunnable implementiert.
+Beispiel: "-application gnogitoprototype.GnogitoPrototype".
