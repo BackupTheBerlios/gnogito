@@ -205,7 +205,7 @@ org.eclipse.osgi
 org.eclipse.osgi.services 
 org.eclipse.osgi.util 
 org.eclipse.swt 
-org.eclipse.swt.win32 
+org.eclipse.swt.win32 (Windows) bzw. org.eclipse.swt.gtk (Linux) 
 org.eclipse.ui 
 org.eclipse.ui.workbench 
 org.eclipse.update.configurator 
