@@ -1,6 +1,10 @@
 <?xml version='1.0' encoding='ISO-8859-1'?>
 <gnogito>
-  <metadata/>
-  <organizations/>
-  <ressources/>
+<!--Beispiel für eine gnogito.xml.-->  <metadata/>
+  <package>
+    <component path="" type="tree" >
+      <component path="" />
+    </component>
+    <component path="" type="mindmap" />
+  </package>
 </gnogito>
