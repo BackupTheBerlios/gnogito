@@ -2,3 +2,109 @@ Das vorliegende Dokument dient der Fixierung von Projektrichtlinien,
 deren Vereinbarung sich im Lauf der Projektarbeit als sinnvoll
 erwiesen hat. 
 
+Anlegen eines neuen Java-Projektes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Java-Projekte sind im Gnogito-Repository an einer bestimmten Stelle
+abgelegt. Damit hier die Ordnung gewahrt wird, ist beim Anlegen eines
+neuen Projektes im Repository die folgende Schrittfolge einzuhalten.
+
+1. Erstellen des Projektes in der Java-Perspektive
+==================================================
+Zunächst erstellt man sein neues Projekt in der Java-Perspektive,
+bis es einen Status erreicht, den man einchecken möchte.
+
+2. Einchecken des Projektes, Auswahl des Repositories
+=====================================================
+Nun wird das Projekt im "Package Explorer" selektiert. Über das
+Kontextmenü wird "Team -> Share Project". Wenn das Gnogito bereits
+einmal verwendet wurde, taucht es im darauf folgenden Dialog in
+der Liste der existierenden Repositories auf. Es muss dann selektiert
+und die Checkbox "Use existing repository location" ausgewählt werden.
+Andernfalls muss das Repository den Eclipse bekannten Repositories
+mittels "Create a new repository location" hinzugefügt werden. Welche
+Einstellungen hier vorzunehmen sind, wird im vorliegenden Dokument
+noch an anderer Stelle zu besprechen sein. Nehmen wir vorläufig an,
+das Repository wurde bereits verwendet und nun ausgewählt. Wir
+bestätigen das mit "Next".
+
+3. Einchecken des Projektes, Auswahl des richtigen Verzeichnisses
+=================================================================
+Der nächste Schritt ist besonders wichtig. Werden hier Fehler gemacht,
+so resultiert dies in fälschlich angelegten Verzeichnissen im
+Repository, die bekanntermaßen nicht wieder löschbar sind. Also bitte
+die folgenden Bemerkungen exakt befolgen! Nachdem wir zuvor mittels
+"Next" bestätigt haben, öffnet sich nun der "Enter Module
+Name"-Dialog. Hier wählt man "Use specified module name". Es ist dann
+aber NICHT nur der Modulname, sondern der komplette Pfad zu dem
+Java-Projektverzeichnis anzugeben, denn laut Konvention verwenden
+wir ja nur ein einiges CVS-Modul für das Gnogito-Projekt, unter dem
+wir verschiedene Java-Projekte einchecken. Ein Java-Projekt ist also
+nur ein Unterverzeichnis des CVS-Modules /gnogito. Es liegt dort in
+dem Unterverzeichnis "javaprojekte", so dass sich als Gesamtpfad für
+das Modul ergibt:
+
+/gnogito/javaprojekte/<projektverzeichnisname>
+
+Danach mittels "Next" und dann "Finish" bestätigen.
+
+4. Committen (ohne .project und .classpath!)
+============================================
+Durch die bisherigen Arbeitsschritte wurde lediglich ein neues
+Verzeichnis <projektverzeichnisname> in das Repository eingefügt.
+Gleichzeitig wurde das Java-Projekt selbst zu einer CVS-Arbeitskopie.
+Die im Projekt enthaltenen Dateien gehören aber noch nicht zum
+Repository, denn bislang wurde kein "commit" durchgeführt. Das holen
+wir jetzt nach. In der "Synchronize View - CVS Workspace"-Perspektive
+finden sich nun die Dateien und Verzeichnisse, die noch auf einen
+commit warten. Darunter befinden sich jedoch auch die Dateien .project
+und .classpath, die im Repository nichts verloren haben. Da wir diese
+nicht immer in der "Synchronize View"-Perspektive sehen wollen, fügen
+wir sie zunächst der .cvsignore-Datei hinzu. Hierzu sind einfach die
+beiden Dateien zu selektieren und dann im Kontextmenü "Add to
+.cvsignore" auszuwählen. Den darauf folgenden Dialog einfach
+bestätigen. Danach wird, falls noch nicht vorhanden, eine neue
+Datei .cvsignore erstellt. Diese nehmen wir gleich selbst noch über
+"Add to .cvsignore" mit in die Liste der Dateien auf, die wir
+dauerhaft nicht in das Repository aufnehmen wollen. Es sollten nun
+in der "Synchronize View"-Perspektive weder die .projekt/.classpath
+noch die .cvsignore-Datei zu sehen sein. 
+
+Die verbleibenden Dateien sollten aller Wahrscheinlichkeit nach
+in das Repository aufgenommen werden. Dies erledigen wir nun mittels
+"Kontextmenü->Commit". Danach ist noch eine eine Commit-Nachricht
+einzugeben. Nach der Bestätigung sollte sich dann die "Synchronize
+View"-Perspektive geleert haben. Damit ist das neue Java-Projekt
+vollständig und an der richtigen Stelle im Repository angekommen.
+
+
+Auschecken eines Java-Projektes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Java-Projekte werden im Repository ohne die .project und .classfile
+Dateien abgespeichert, da diese Rechnerspezifisch sind und ansonsten
+jeweils nach einem Checkout angepaßt werden müssten. Daher ist beim
+Auschecken eine bestimmte Schrittfolge einzuhalten, um als Ergebnis
+ein valides Eclipse-Java-Projekt zu erhalten.
+
+1. Projektverzeichnis auswählen
+===============================
+Alle Java-Projekte werden im Repository unter /gnogito/javaprojekte
+abgelegt. Die darunter befindlichen Verzeichnisse sind jeweils
+Wurzelverzeichnisse eines Java-Projektes. Will man also ein Projekt
+in den Eclipse-Workspace auschecken, so ist zunächst ein solches
+Projektverzeichnis auszuwählen.
+
+2. Als Java-Projekt auschecken
+==============================
+Nun ist im Kontextmenü "Check out as" auszuwählen. Im darauf folgenden
+Dialog muss die Checkbox "Check out as a project configured using the
+New Project Wizard" selektiert sein. Mittels "Finish" wird bestätigt -
+es öffnet sich der "New Project"-Dialog. Hier ist es nun wichtig, in
+der Liste der rechten Seite den Eintrag "Java Project" auszuwählen.
+Dieser Schritt führt letztlich zur Erzeugung lokaler .project und
+.classpath Dateien. Man bestätigt mittels "Next" und muss nun einen
+Projektnamen angeben. Hier sollte der Name des Projektverzeichnisses
+aus dem Repository gewählt werden. Mittels "Next" kommt man in den
+Dialog zur Einstellung einiger Java-Settings. Ist nichts anderes
+bekannt, so kann nun einfach mittels "Finish" bestätigt werden. Danach
+ist das Projekt in der Java-Perspektive sichtbar und kann bearbeitet
+werden.
