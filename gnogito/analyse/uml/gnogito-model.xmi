@@ -10,7 +10,7 @@
   <XMI.metamodel xmi.name="UML" href="UML.xml" xmi.version="1.3" />
  </XMI.header>
  <XMI.content>
-  <docsettings viewid="44" documentation="" uniqueid="81" />
+  <docsettings viewid="26" documentation="" uniqueid="169" />
   <UML:Model>
    <UML:DataType stereotype="Datentyp" visibility="public" xmi.id="2" name="int" />
    <UML:DataType stereotype="Datentyp" visibility="public" xmi.id="3" name="char" />
@@ -34,7 +34,11 @@
    <UML:UseCase visibility="public" xmi.id="23" name="Begriffsbeschreibung editieren" />
    <UML:UseCase visibility="public" xmi.id="24" name="Begriff kopieren" />
    <UML:UseCase visibility="public" xmi.id="25" name="Begriffsposition ändern" />
-   <UML:Class stereotype="Klasse" visibility="public" xmi.id="27" name="Wissenspaket" />
+   <UML:Class stereotype="Klasse" visibility="public" xmi.id="27" name="Wissenspaket" >
+    <UML:Attribute visibility="public" xmi.id="103" value="" type="string" name="name" />
+    <UML:Attribute visibility="public" xmi.id="104" value="" type="string" name="beschreibung" />
+    <UML:Attribute comment="Dieses Attribut beschreibt den Reifegrad des gesamten Wissenspakets. Es ist vorgesehen, hier definierte Stufen wie &quot;Stub&quot;, &quot;Entwurf&quot;, &quot;Alpha&quot;, &quot;Beta&quot; usw. anzubieten." visibility="public" xmi.id="102" value="" type="string" name="reifegrad" />
+   </UML:Class>
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="28" name="Wissensstruktur" />
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="29" name="Wissensbehaelter" />
    <UML:Class stereotype="Klasse" visibility="public" xmi.id="30" name="Wissensobjekt" />
@@ -45,6 +49,14 @@
    <UML:Component executable="0" visibility="public" xmi.id="47" name="Gnogito-Kern" />
    <UML:Component executable="0" visibility="public" xmi.id="48" name="Plugin 1" />
    <UML:Component executable="0" visibility="public" xmi.id="49" name="Plugin 2" />
+   <UML:Class stereotype="Klasse" visibility="public" xmi.id="106" name="Metainformation" >
+    <UML:Attribute visibility="public" xmi.id="108" value="" type="string" name="kategorien" />
+    <UML:Attribute visibility="public" xmi.id="110" value="" type="string" name="schluesselworte" />
+    <UML:Attribute visibility="public" xmi.id="109" value="" type="string" name="historie" />
+   </UML:Class>
+   <UML:Class stereotype="Klasse" visibility="public" xmi.id="138" name="XmlPaketstruktur" />
+   <UML:Class stereotype="Klasse" visibility="public" xmi.id="154" name="XmlDom" />
+   <UML:Class stereotype="Klasse" visibility="public" xmi.id="155" name="XmlWissensstruktur" />
    <UML:Association visibility="public" xmi.id="36" >
     <UML:Association.connection>
      <UML:AssociationEndRole visibility="public" aggregation="shared" type="27" multiplicity="1" />
@@ -66,9 +78,15 @@
    <UML:Generalization child="31" visibility="public" xmi.id="39" parent="28" />
    <UML:Generalization child="32" visibility="public" xmi.id="40" parent="29" />
    <UML:Generalization child="33" visibility="public" xmi.id="41" parent="30" />
+   <UML:Association visibility="public" xmi.id="156" >
+    <UML:Association.connection>
+     <UML:AssociationEndRole visibility="public" aggregation="composite" type="27" />
+     <UML:AssociationEndRole visibility="public" type="106" />
+    </UML:Association.connection>
+   </UML:Association>
   </UML:Model>
   <diagrams>
-   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="542" snapy="10" showatts="1" xmi.id="12" documentation="" type="400" showops="1" showpackage="0" name="Lerner-Anwendungsfaelle" localid="30000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="435" >
+   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="810" snapy="10" showatts="1" xmi.id="12" documentation="" type="400" showops="1" showpackage="0" name="Lerner-Anwendungsfaelle" localid="30000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="617" >
     <widgets>
      <UML:ActorWidget usesdiagramfillcolour="1" width="45" usesdiagramusefillcolour="1" x="66" linecolour="none" y="254" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="60" usefillcolor="1" isinstance="0" xmi.id="10" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      <UML:UseCaseWidget usesdiagramfillcolour="1" width="117" usesdiagramusefillcolour="1" x="210" linecolour="none" y="132" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="50" usefillcolor="1" isinstance="0" xmi.id="13" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
@@ -104,148 +122,196 @@
      </UML:AssocWidget>
     </associations>
    </diagram>
-   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="557" snapy="10" showatts="1" xmi.id="17" documentation="" type="400" showops="1" showpackage="0" name="Editierer-Anwendungsfall" localid="30000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="567" >
+   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="810" snapy="10" showatts="1" xmi.id="17" documentation="" type="400" showops="1" showpackage="0" name="Editierer-Anwendungsfall" localid="30000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="617" >
     <widgets>
      <UML:ActorWidget usesdiagramfillcolour="1" width="54" usesdiagramusefillcolour="1" x="75" linecolour="none" y="262" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="60" usefillcolor="1" isinstance="0" xmi.id="11" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-     <UML:UseCaseWidget usesdiagramfillcolour="1" width="136" usesdiagramusefillcolour="1" x="142" linecolour="none" y="35" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="50" usefillcolor="1" isinstance="0" xmi.id="18" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-     <UML:UseCaseWidget usesdiagramfillcolour="1" width="117" usesdiagramusefillcolour="1" x="294" linecolour="none" y="46" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="50" usefillcolor="1" isinstance="0" xmi.id="13" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-     <UML:UseCaseWidget usesdiagramfillcolour="1" width="138" usesdiagramusefillcolour="1" x="321" linecolour="none" y="119" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="50" usefillcolor="1" isinstance="0" xmi.id="14" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-     <UML:UseCaseWidget usesdiagramfillcolour="1" width="145" usesdiagramusefillcolour="1" x="393" linecolour="none" y="173" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="50" usefillcolor="1" isinstance="0" xmi.id="19" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-     <UML:UseCaseWidget usesdiagramfillcolour="1" width="99" usesdiagramusefillcolour="1" x="286" linecolour="none" y="228" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="50" usefillcolor="1" isinstance="0" xmi.id="20" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-     <UML:UseCaseWidget usesdiagramfillcolour="1" width="148" usesdiagramusefillcolour="1" x="385" linecolour="none" y="263" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="50" usefillcolor="1" isinstance="0" xmi.id="21" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-     <UML:UseCaseWidget usesdiagramfillcolour="1" width="90" usesdiagramusefillcolour="1" x="289" linecolour="none" y="299" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="50" usefillcolor="1" isinstance="0" xmi.id="22" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-     <UML:UseCaseWidget usesdiagramfillcolour="1" width="175" usesdiagramusefillcolour="1" x="378" linecolour="none" y="398" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="50" usefillcolor="1" isinstance="0" xmi.id="23" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-     <UML:UseCaseWidget usesdiagramfillcolour="1" width="97" usesdiagramusefillcolour="1" x="196" linecolour="none" y="417" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="50" usefillcolor="1" isinstance="0" xmi.id="24" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-     <UML:UseCaseWidget usesdiagramfillcolour="1" width="135" usesdiagramusefillcolour="1" x="377" linecolour="none" y="484" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="50" usefillcolor="1" isinstance="0" xmi.id="25" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-     <UML:UseCaseWidget usesdiagramfillcolour="1" width="313" usesdiagramusefillcolour="1" x="51" linecolour="none" y="513" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="50" usefillcolor="1" isinstance="0" xmi.id="15" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:UseCaseWidget usesdiagramfillcolour="0" width="136" usesdiagramusefillcolour="1" x="31" linecolour="none" y="42" instancename="" usesdiagramlinecolour="1" fillcolour="#8894ff" height="50" usefillcolor="1" isinstance="0" xmi.id="18" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:UseCaseWidget usesdiagramfillcolour="0" width="117" usesdiagramusefillcolour="1" x="109" linecolour="none" y="94" instancename="" usesdiagramlinecolour="1" fillcolour="#8894ff" height="50" usefillcolor="1" isinstance="0" xmi.id="13" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:UseCaseWidget usesdiagramfillcolour="0" width="138" usesdiagramusefillcolour="1" x="188" linecolour="none" y="49" instancename="" usesdiagramlinecolour="1" fillcolour="#8894ff" height="50" usefillcolor="1" isinstance="0" xmi.id="14" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:UseCaseWidget usesdiagramfillcolour="1" width="145" usesdiagramusefillcolour="1" x="372" linecolour="none" y="53" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="50" usefillcolor="1" isinstance="0" xmi.id="19" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:UseCaseWidget usesdiagramfillcolour="0" width="99" usesdiagramusefillcolour="1" x="299" linecolour="none" y="222" instancename="" usesdiagramlinecolour="1" fillcolour="#4dff47" height="50" usefillcolor="1" isinstance="0" xmi.id="20" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:UseCaseWidget usesdiagramfillcolour="0" width="148" usesdiagramusefillcolour="1" x="345" linecolour="none" y="270" instancename="" usesdiagramlinecolour="1" fillcolour="#4dff47" height="50" usefillcolor="1" isinstance="0" xmi.id="21" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:UseCaseWidget usesdiagramfillcolour="0" width="90" usesdiagramusefillcolour="1" x="343" linecolour="none" y="329" instancename="" usesdiagramlinecolour="1" fillcolour="#4dff47" height="50" usefillcolor="1" isinstance="0" xmi.id="22" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:UseCaseWidget usesdiagramfillcolour="0" width="175" usesdiagramusefillcolour="1" x="300" linecolour="none" y="405" instancename="" usesdiagramlinecolour="1" fillcolour="#4dff47" height="50" usefillcolor="1" isinstance="0" xmi.id="23" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:UseCaseWidget usesdiagramfillcolour="0" width="97" usesdiagramusefillcolour="1" x="151" linecolour="none" y="391" instancename="" usesdiagramlinecolour="1" fillcolour="#4dff47" height="50" usefillcolor="1" isinstance="0" xmi.id="24" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:UseCaseWidget usesdiagramfillcolour="0" width="135" usesdiagramusefillcolour="1" x="282" linecolour="none" y="479" instancename="" usesdiagramlinecolour="1" fillcolour="#4dff47" height="50" usefillcolor="1" isinstance="0" xmi.id="25" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:UseCaseWidget usesdiagramfillcolour="0" width="313" usesdiagramusefillcolour="0" x="0" linecolour="#ff0000" y="445" instancename="" usesdiagramlinecolour="0" fillcolour="#4dff47" height="50" usefillcolor="1" isinstance="0" xmi.id="15" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
     </widgets>
     <messages/>
     <associations>
-     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="3" indexb="1" widgetbid="11" widgetaid="18" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="4" indexb="1" widgetbid="11" widgetaid="18" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="210" starty="85" />
-       <endpoint endx="93" endy="262" />
+       <startpoint startx="99" starty="92" />
+       <endpoint endx="88" endy="262" />
       </linepath>
      </UML:AssocWidget>
-     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="3" indexb="2" widgetbid="11" widgetaid="13" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="4" indexb="2" widgetbid="11" widgetaid="13" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="352" starty="96" />
-       <endpoint endx="111" endy="262" />
+       <startpoint startx="167" starty="144" />
+       <endpoint endx="102" endy="262" />
       </linepath>
      </UML:AssocWidget>
-     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="8" indexb="1" widgetbid="11" widgetaid="14" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="4" indexb="3" widgetbid="11" widgetaid="14" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="390" starty="169" />
-       <endpoint endx="129" endy="269" />
+       <startpoint startx="257" starty="99" />
+       <endpoint endx="115" endy="262" />
       </linepath>
      </UML:AssocWidget>
-     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="8" indexb="2" widgetbid="11" widgetaid="19" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="7" indexb="1" widgetbid="11" widgetaid="19" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="393" starty="198" />
-       <endpoint endx="129" endy="277" />
+       <startpoint startx="444" starty="103" />
+       <endpoint endx="129" endy="270" />
       </linepath>
      </UML:AssocWidget>
-     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="8" indexb="3" widgetbid="11" widgetaid="20" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="7" indexb="2" widgetbid="11" widgetaid="20" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="286" starty="253" />
-       <endpoint endx="129" endy="284" />
+       <startpoint startx="299" starty="247" />
+       <endpoint endx="129" endy="279" />
       </linepath>
      </UML:AssocWidget>
-     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="8" indexb="4" widgetbid="11" widgetaid="21" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="7" indexb="3" widgetbid="11" widgetaid="21" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="385" starty="288" />
-       <endpoint endx="129" endy="292" />
+       <startpoint startx="345" starty="295" />
+       <endpoint endx="129" endy="287" />
       </linepath>
      </UML:AssocWidget>
-     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="8" indexb="5" widgetbid="11" widgetaid="22" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="7" indexb="4" widgetbid="11" widgetaid="22" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="289" starty="324" />
-       <endpoint endx="129" endy="299" />
+       <startpoint startx="343" starty="354" />
+       <endpoint endx="129" endy="296" />
       </linepath>
      </UML:AssocWidget>
-     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="8" indexb="6" widgetbid="11" widgetaid="23" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="7" indexb="5" widgetbid="11" widgetaid="23" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="465" starty="398" />
-       <endpoint endx="129" endy="307" />
+       <startpoint startx="387" starty="405" />
+       <endpoint endx="129" endy="304" />
       </linepath>
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="3" indexb="2" widgetbid="11" widgetaid="24" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="244" starty="417" />
+       <startpoint startx="199" starty="391" />
        <endpoint endx="111" endy="322" />
       </linepath>
      </UML:AssocWidget>
-     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="8" indexb="7" widgetbid="11" widgetaid="25" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="7" indexb="6" widgetbid="11" widgetaid="25" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="444" starty="484" />
-       <endpoint endx="129" endy="314" />
+       <startpoint startx="349" starty="479" />
+       <endpoint endx="129" endy="313" />
       </linepath>
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="3" indexb="1" widgetbid="11" widgetaid="15" roleBdoc="" roleAdoc="" type="503" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="207" starty="513" />
+       <startpoint startx="156" starty="445" />
        <endpoint endx="93" endy="322" />
       </linepath>
      </UML:AssocWidget>
     </associations>
    </diagram>
-   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" zoom="112" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="484" snapy="10" showatts="1" xmi.id="26" documentation="" type="402" showops="1" showpackage="0" name="Wissensmodell" localid="30000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="415" >
+   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" zoom="81" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="1000" snapy="10" showatts="1" xmi.id="26" documentation="" type="402" showops="1" showpackage="0" name="Wissensmodell" localid="30000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="762" >
     <widgets>
-     <UML:ClassWidget usesdiagramfillcolour="1" width="87" showattsigs="601" usesdiagramusefillcolour="1" x="130" linecolour="none" y="86" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="27" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <UML:ClassWidget usesdiagramfillcolour="1" width="102" showattsigs="601" usesdiagramusefillcolour="1" x="122" linecolour="none" y="194" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="28" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <UML:ClassWidget usesdiagramfillcolour="1" width="112" showattsigs="601" usesdiagramusefillcolour="1" x="117" linecolour="none" y="288" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="29" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <UML:ClassWidget usesdiagramfillcolour="1" width="90" showattsigs="601" usesdiagramusefillcolour="1" x="128" linecolour="none" y="382" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="30" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <UML:ClassWidget usesdiagramfillcolour="1" width="101" showattsigs="601" usesdiagramusefillcolour="1" x="342" linecolour="none" y="194" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="31" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <UML:ClassWidget usesdiagramfillcolour="1" width="60" showattsigs="601" usesdiagramusefillcolour="1" x="344" linecolour="none" y="288" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="32" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <UML:ClassWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="340" linecolour="none" y="382" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="33" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="0" width="137" showattsigs="601" usesdiagramusefillcolour="0" x="322" linecolour="#ff0000" y="285" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="67" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="27" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="1" width="102" showattsigs="601" usesdiagramusefillcolour="1" x="337" linecolour="none" y="405" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="28" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="1" width="112" showattsigs="601" usesdiagramusefillcolour="1" x="333" linecolour="none" y="486" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="29" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="1" width="90" showattsigs="601" usesdiagramusefillcolour="1" x="342" linecolour="none" y="577" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="30" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="1" width="101" showattsigs="601" usesdiagramusefillcolour="1" x="557" linecolour="none" y="405" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="31" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="1" width="60" showattsigs="601" usesdiagramusefillcolour="1" x="559" linecolour="none" y="486" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="32" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="1" width="131" showattsigs="601" usesdiagramusefillcolour="1" x="558" linecolour="none" y="577" showopsigs="601" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="29" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="33" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:NoteWidget usesdiagramfillcolour="0" width="105" usesdiagramusefillcolour="1" x="172" linecolour="none" y="278" instancename="" usesdiagramlinecolour="1" fillcolour="#d9ffb7" height="58" usefillcolor="1" isinstance="0" xmi.id="98" text="Pendant in der Realität:
+z. B. Datei." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:NoteWidget usesdiagramfillcolour="0" width="102" usesdiagramusefillcolour="1" x="173" linecolour="none" y="373" instancename="" usesdiagramlinecolour="1" fillcolour="#d9ffb7" height="73" usefillcolor="1" isinstance="0" xmi.id="99" text="Pendant in der Realität:
+Ordnung halten." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:NoteWidget usesdiagramfillcolour="0" width="102" usesdiagramusefillcolour="1" x="173" linecolour="none" y="466" instancename="" usesdiagramlinecolour="1" fillcolour="#d9ffb7" height="89" usefillcolor="1" isinstance="0" xmi.id="100" text="Pendant in der Realität:
+Schublade, Ablage, Ordner." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:NoteWidget usesdiagramfillcolour="0" width="105" usesdiagramusefillcolour="1" x="171" linecolour="none" y="566" instancename="" usesdiagramlinecolour="1" fillcolour="#d9ffb7" height="63" usefillcolor="1" isinstance="0" xmi.id="101" text="Pendant in der Realität:
+Lerninhalte." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:ClassWidget usesdiagramfillcolour="0" width="147" showattsigs="601" usesdiagramusefillcolour="0" x="318" linecolour="#ff0000" y="163" showopsigs="601" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="67" usefillcolor="1" showattributes="1" isinstance="0" xmi.id="106" showoperations="1" showpackage="0" showscope="1" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:NoteWidget usesdiagramfillcolour="0" width="123" usesdiagramusefillcolour="1" x="516" linecolour="none" y="57" instancename="" usesdiagramlinecolour="1" fillcolour="#c6ffba" height="136" usefillcolor="1" isinstance="0" xmi.id="124" text="Dient insbesondere der späteren Suche
+nach geeigneten Wissenspaketen, ihrer
+Einordnung etc." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
     </widgets>
     <messages/>
     <associations>
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="28" widgetaid="27" xmi.id="36" >
       <linepath>
-       <startpoint startx="173" starty="115" />
-       <endpoint endx="173" endy="194" />
+       <startpoint startx="390" starty="352" />
+       <endpoint endx="388" endy="405" />
       </linepath>
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="175" linecolour="none" y="117" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="36" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="175" linecolour="none" y="173" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="36" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="392" linecolour="none" y="354" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="36" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="372" linecolour="none" y="384" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="36" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="29" widgetaid="28" xmi.id="37" >
       <linepath>
-       <startpoint startx="173" starty="223" />
-       <endpoint endx="173" endy="288" />
+       <startpoint startx="388" starty="434" />
+       <endpoint endx="389" endy="486" />
       </linepath>
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="175" linecolour="none" y="225" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="37" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="175" linecolour="none" y="267" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="37" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="14" usesdiagramusefillcolour="1" x="369" linecolour="none" y="436" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="37" text="1" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="391" linecolour="none" y="465" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="37" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="30" widgetaid="29" xmi.id="38" >
       <linepath>
-       <startpoint startx="173" starty="317" />
-       <endpoint endx="173" endy="382" />
+       <startpoint startx="389" starty="515" />
+       <endpoint endx="387" endy="577" />
       </linepath>
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="27" usesdiagramusefillcolour="1" x="175" linecolour="none" y="319" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="38" text="1..*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="175" linecolour="none" y="361" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="38" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="27" usesdiagramusefillcolour="1" x="391" linecolour="none" y="517" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="38" text="1..*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="15" usesdiagramusefillcolour="1" x="374" linecolour="none" y="556" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="38" text="*" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="28" widgetaid="31" xmi.id="39" >
       <linepath>
-       <startpoint startx="342" starty="208" />
-       <endpoint endx="224" endy="208" />
+       <startpoint startx="557" starty="419" />
+       <endpoint endx="439" endy="419" />
       </linepath>
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="29" widgetaid="32" xmi.id="40" >
       <linepath>
-       <startpoint startx="344" starty="302" />
-       <endpoint endx="229" endy="302" />
+       <startpoint startx="559" starty="500" />
+       <endpoint endx="445" endy="500" />
       </linepath>
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="30" widgetaid="33" xmi.id="41" >
       <linepath>
-       <startpoint startx="340" starty="396" />
-       <endpoint endx="218" endy="396" />
+       <startpoint startx="558" starty="591" />
+       <endpoint endx="432" endy="591" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="2" indexb="1" widgetbid="98" widgetaid="27" roleBdoc="" roleAdoc="" type="513" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+      <linepath>
+       <startpoint startx="322" starty="318" />
+       <endpoint endx="277" endy="307" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="2" indexb="1" widgetbid="99" widgetaid="28" roleBdoc="" roleAdoc="" type="513" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+      <linepath>
+       <startpoint startx="337" starty="419" />
+       <endpoint endx="275" endy="409" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="2" indexb="1" widgetbid="100" widgetaid="29" roleBdoc="" roleAdoc="" type="513" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+      <linepath>
+       <startpoint startx="333" starty="500" />
+       <endpoint endx="275" endy="510" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="2" indexb="1" widgetbid="101" widgetaid="30" roleBdoc="" roleAdoc="" type="513" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+      <linepath>
+       <startpoint startx="342" starty="591" />
+       <endpoint endx="276" endy="597" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="2" indexb="1" widgetbid="124" widgetaid="106" roleBdoc="" roleAdoc="" type="513" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+      <linepath>
+       <startpoint startx="391" starty="163" />
+       <endpoint endx="516" endy="126" />
+      </linepath>
+     </UML:AssocWidget>
+     <UML:AssocWidget totalcounta="2" indexa="1" totalcountb="2" indexb="1" widgetbid="106" widgetaid="27" xmi.id="156" >
+      <linepath>
+       <startpoint startx="390" starty="285" />
+       <endpoint endx="391" endy="230" />
       </linepath>
      </UML:AssocWidget>
     </associations>
    </diagram>
-   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="558" snapy="10" showatts="1" xmi.id="43" documentation="" type="402" showops="1" showpackage="0" name="Domänen-Klassenmodell" localid="30000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="376" >
+   <diagram snapgrid="0" showattsig="1" fillcolor="#ffffc0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="810" snapy="10" showatts="1" xmi.id="43" documentation="" type="402" showops="1" showpackage="0" name="Domänen-Klassenmodell" localid="30000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="617" >
     <widgets/>
     <messages/>
     <associations/>
@@ -253,55 +319,55 @@
    <diagram snapgrid="1" showattsig="1" fillcolor="#ffffc0" zoom="100" showgrid="0" showopsig="1" usefillcolor="1" snapx="10" canvaswidth="810" snapy="10" showatts="1" xmi.id="44" documentation="" type="406" showops="1" showpackage="0" name="Komponenten-Uebersicht" localid="30000" showstereotype="0" showscope="1" snapcsgrid="0" font="Sans Serif,10,-1,5,50,0,0,0,0,0" linecolor="#ff0000" canvasheight="617" >
     <widgets>
      <componentwidget usesdiagramfillcolour="0" width="168" usesdiagramusefillcolour="0" x="30" linecolour="#ff0000" y="190" instancename="" usesdiagramlinecolour="0" fillcolour="#ffffc0" height="60" usefillcolor="1" isinstance="0" xmi.id="46" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <componentwidget usesdiagramfillcolour="1" width="136" usesdiagramusefillcolour="1" x="630" linecolour="none" y="200" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="60" usefillcolor="1" isinstance="0" xmi.id="47" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <componentwidget usesdiagramfillcolour="1" width="107" usesdiagramusefillcolour="1" x="298" linecolour="none" y="369" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="60" usefillcolor="1" isinstance="0" xmi.id="48" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <componentwidget usesdiagramfillcolour="1" width="107" usesdiagramusefillcolour="1" x="300" linecolour="none" y="30" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="60" usefillcolor="1" isinstance="0" xmi.id="49" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
-     <UML:NoteWidget usesdiagramfillcolour="0" width="218" usesdiagramusefillcolour="1" x="580" linecolour="#000000" y="300" instancename="" usesdiagramlinecolour="0" fillcolour="#c9daff" height="145" usefillcolor="1" isinstance="0" xmi.id="77" text="Der Gnogito-Kern ist selbst ein Eclipse-Plugin. Er definiert seinerseits Erweiterungspunkte für weitere Gnogito-Komponenten, die ihrerseits ebenfalls Eclipse-Plugins sind, aber zusätzlich eine Schnittstelle zum Gnogito-Kern verwenden." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <componentwidget usesdiagramfillcolour="1" width="136" usesdiagramusefillcolour="1" x="430" linecolour="none" y="190" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="60" usefillcolor="1" isinstance="0" xmi.id="47" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <componentwidget usesdiagramfillcolour="1" width="107" usesdiagramusefillcolour="1" x="320" linecolour="none" y="350" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="60" usefillcolor="1" isinstance="0" xmi.id="48" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <componentwidget usesdiagramfillcolour="1" width="107" usesdiagramusefillcolour="1" x="320" linecolour="none" y="30" instancename="" usesdiagramlinecolour="1" fillcolour="none" height="60" usefillcolor="1" isinstance="0" xmi.id="49" showstereotype="0" font="Sans Serif,10,-1,5,75,0,0,0,0,0" />
+     <UML:NoteWidget usesdiagramfillcolour="0" width="218" usesdiagramusefillcolour="1" x="540" linecolour="#000000" y="260" instancename="" usesdiagramlinecolour="0" fillcolour="#c9daff" height="145" usefillcolor="1" isinstance="0" xmi.id="77" text="Der Gnogito-Kern ist selbst ein Eclipse-Plugin. Er definiert seinerseits Erweiterungspunkte für weitere Gnogito-Komponenten, die ihrerseits ebenfalls Eclipse-Plugins sind, aber zusätzlich eine Schnittstelle zum Gnogito-Kern verwenden." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      <UML:NoteWidget usesdiagramfillcolour="0" width="121" usesdiagramusefillcolour="1" x="220" linecolour="none" y="190" instancename="" usesdiagramlinecolour="1" fillcolour="#c6ffba" height="58" usefillcolor="1" isinstance="0" xmi.id="78" text="Eclipse Plugin-Schnittstelle" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-     <UML:NoteWidget usesdiagramfillcolour="0" width="121" usesdiagramusefillcolour="1" x="450" linecolour="none" y="70" instancename="" usesdiagramlinecolour="1" fillcolour="#c6ffba" height="58" usefillcolor="1" isinstance="0" xmi.id="79" text="Gnogito Kern-Schnittstelle" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-     <UML:NoteWidget usesdiagramfillcolour="0" width="154" usesdiagramusefillcolour="1" x="300" linecolour="#000000" y="450" instancename="" usesdiagramlinecolour="0" fillcolour="#c9daff" height="108" usefillcolor="1" isinstance="0" xmi.id="80" text="Beispiele für Plugins sind:
+     <UML:NoteWidget usesdiagramfillcolour="0" width="121" usesdiagramusefillcolour="1" x="380" linecolour="none" y="110" instancename="" usesdiagramlinecolour="1" fillcolour="#c6ffba" height="58" usefillcolor="1" isinstance="0" xmi.id="79" text="Gnogito Kern-Schnittstelle" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:NoteWidget usesdiagramfillcolour="0" width="154" usesdiagramusefillcolour="1" x="310" linecolour="#000000" y="490" instancename="" usesdiagramlinecolour="0" fillcolour="#c9daff" height="108" usefillcolor="1" isinstance="0" xmi.id="80" text="Beispiele für Plugins sind:
 - Begriffsstruktur
 - Grafikkomponente
 - Karteikartenset
 usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-     <UML:NoteWidget usesdiagramfillcolour="0" width="121" usesdiagramusefillcolour="1" x="450" linecolour="none" y="280" instancename="" usesdiagramlinecolour="1" fillcolour="#c6ffba" height="58" usefillcolor="1" isinstance="0" xmi.id="81" text="Gnogito Kern-Schnittstelle" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+     <UML:NoteWidget usesdiagramfillcolour="0" width="121" usesdiagramusefillcolour="1" x="380" linecolour="none" y="270" instancename="" usesdiagramlinecolour="1" fillcolour="#c6ffba" height="58" usefillcolor="1" isinstance="0" xmi.id="81" text="Gnogito Kern-Schnittstelle" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
     </widgets>
     <messages/>
     <associations>
-     <UML:AssocWidget totalcounta="3" indexa="1" visibilityB="200" totalcountb="2" indexb="1" widgetbid="46" widgetaid="47" roleBdoc="" roleAdoc="" type="502" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="2" indexb="1" widgetbid="46" widgetaid="47" roleBdoc="" roleAdoc="" type="502" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="630" starty="220" />
+       <startpoint startx="430" starty="220" />
        <endpoint endx="198" endy="220" />
       </linepath>
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="350" linecolour="none" y="270" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="63" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="620" linecolour="none" y="230" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="64" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="200" linecolour="none" y="140" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="65" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="350" linecolour="none" y="280" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="163" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="420" linecolour="none" y="230" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="164" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="200" linecolour="none" y="140" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="165" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
-     <UML:AssocWidget totalcounta="3" indexa="1" visibilityB="200" totalcountb="2" indexb="1" widgetbid="46" widgetaid="48" roleBdoc="" roleAdoc="" type="502" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="2" indexb="1" widgetbid="46" widgetaid="48" roleBdoc="" roleAdoc="" type="502" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="333" starty="369" />
+       <startpoint startx="320" starty="380" />
        <endpoint endx="114" endy="250" />
       </linepath>
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="2" indexb="1" widgetbid="46" widgetaid="49" roleBdoc="" roleAdoc="" type="502" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="300" starty="60" />
+       <startpoint startx="320" starty="60" />
        <endpoint endx="114" endy="190" />
       </linepath>
      </UML:AssocWidget>
-     <UML:AssocWidget totalcounta="3" indexa="2" visibilityB="200" totalcountb="3" indexb="2" widgetbid="47" widgetaid="48" roleBdoc="" roleAdoc="" type="502" changeabilityA="900" changeabilityB="900" visibilityA="200" >
+     <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="2" indexb="1" widgetbid="47" widgetaid="48" roleBdoc="" roleAdoc="" type="502" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="369" starty="369" />
-       <endpoint endx="630" endy="240" />
+       <startpoint startx="373" starty="350" />
+       <endpoint endx="498" endy="250" />
       </linepath>
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="620" linecolour="none" y="570" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="47" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="370" linecolour="none" y="370" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="-1" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
-      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="620" linecolour="none" y="220" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="-1" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="870" linecolour="none" y="790" instancename="" posttext="" usesdiagramlinecolour="1" role="703" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="166" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="340" linecolour="none" y="350" instancename="" posttext="" usesdiagramlinecolour="1" role="701" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="167" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
+      <UML:FloatingTextWidget usesdiagramfillcolour="1" width="8" usesdiagramusefillcolour="1" x="500" linecolour="none" y="230" instancename="" posttext="" usesdiagramlinecolour="1" role="702" fillcolour="none" height="19" usefillcolor="1" pretext="" isinstance="0" xmi.id="168" text="" font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      </UML:AssocWidget>
      <UML:AssocWidget totalcounta="2" indexa="1" visibilityB="200" totalcountb="2" indexb="1" widgetbid="47" widgetaid="49" roleBdoc="" roleAdoc="" type="502" changeabilityA="900" changeabilityB="900" visibilityA="200" >
       <linepath>
-       <startpoint startx="407" starty="60" />
-       <endpoint endx="698" endy="200" />
+       <startpoint startx="373" starty="90" />
+       <endpoint endx="498" endy="190" />
       </linepath>
      </UML:AssocWidget>
     </associations>
@@ -315,10 +381,22 @@ usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
      <listitem open="1" type="813" id="32" label="Begriff" />
      <listitem open="1" type="813" id="33" label="Begriffsbeschreibung" />
      <listitem open="1" type="813" id="31" label="Begriffsstruktur" />
+     <listitem open="1" type="813" id="106" label="Metainformation" >
+      <listitem open="0" type="814" id="109" label="historie" />
+      <listitem open="0" type="814" id="108" label="kategorien" />
+      <listitem open="0" type="814" id="110" label="schluesselworte" />
+     </listitem>
      <listitem open="1" type="813" id="29" label="Wissensbehaelter" />
      <listitem open="1" type="813" id="30" label="Wissensobjekt" />
-     <listitem open="1" type="813" id="27" label="Wissenspaket" />
+     <listitem open="1" type="813" id="27" label="Wissenspaket" >
+      <listitem open="0" type="814" id="104" label="beschreibung" />
+      <listitem open="0" type="814" id="103" label="name" />
+      <listitem open="0" type="814" id="102" label="reifegrad" />
+     </listitem>
      <listitem open="1" type="813" id="28" label="Wissensstruktur" />
+     <listitem open="1" type="813" id="154" label="XmlDom" />
+     <listitem open="1" type="813" id="138" label="XmlPaketstruktur" />
+     <listitem open="1" type="813" id="155" label="XmlWissensstruktur" />
      <listitem open="0" type="830" id="-1" label="Datentypen" >
       <listitem open="1" type="829" id="4" label="bool" />
       <listitem open="1" type="829" id="3" label="char" />
@@ -330,7 +408,7 @@ usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
       <listitem open="1" type="829" id="9" label="string" />
      </listitem>
     </listitem>
-    <listitem open="0" type="802" id="-1" label="Anwendungsfallansicht" >
+    <listitem open="1" type="802" id="-1" label="Anwendungsfallansicht" >
      <listitem open="0" type="805" id="17" label="Editierer-Anwendungsfall" />
      <listitem open="0" type="805" id="12" label="Lerner-Anwendungsfaelle" />
      <listitem open="1" type="811" id="11" label="Editierer" />
@@ -358,2402 +436,6 @@ usw." font="Sans Serif,10,-1,5,50,0,0,0,0,0" />
     <listitem open="1" type="827" id="-1" label="Verteilungsansicht" />
    </listitem>
   </listview>
-  <codegeneration>
-   <codegenerator language="Cpp" >
-    <classifiercodedocument writeOutCode="true" package="" id="27" parent_class="27" fileExt=".cpp" fileName="wissenspaket" >
-     <textblocks>
-      <codeblockwithcomments tag="includes" text="#include &quot;string&quot;&amp;#010;#include vector&quot;&amp;#010;" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <hierarchicalcodeblock tag="constructionMethodsBlock" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" text="Constructors/Destructors" />
-       </header>
-       <textblocks/>
-      </hierarchicalcodeblock>
-      <hierarchicalcodeblock tag="otherMethodsBlock" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" text="Methods" />
-       </header>
-       <textblocks>
-        <codeaccessormethod accessType="0" parent_id="36" tag="hblock_tag_0" canDelete="false" writeOutText="false" classfield_id="36" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="1" parent_id="36" tag="hblock_tag_1" canDelete="false" writeOutText="false" classfield_id="36" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="2" parent_id="36" tag="hblock_tag_2" canDelete="false" writeOutText="false" classfield_id="36" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="3" parent_id="36" tag="hblock_tag_3" canDelete="false" writeOutText="false" classfield_id="36" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="4" parent_id="36" tag="hblock_tag_4" canDelete="false" writeOutText="false" classfield_id="36" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-       </textblocks>
-      </hierarchicalcodeblock>
-     </textblocks>
-     <header>
-      <codecomment tag="" text="/************************************************************************&amp;#010;  			wissenspaket.cpp - Copyright matthias&amp;#010;&amp;#010;Here you can write a license for your code, some comments or any other&amp;#010;information you want to have in your generated code. To to this simply&amp;#010;configure the &quot;headings&quot; directory in uml to point to a directory&amp;#010;where you have your heading files.&amp;#010;&amp;#010;or you can just replace the contents of this file with your own.&amp;#010;If you want to do this, this file is located at&amp;#010;&amp;#010;/opt/kde3/share/apps/umbrello/headings/heading.cpp&amp;#010;&amp;#010;-->Code Generators searches for heading files based on the file extension&amp;#010;   i.e. it will look for a file name ending in &quot;.h&quot; to include in C++ header&amp;#010;   files, and for a file name ending in &quot;.java&quot; to include in all generated&amp;#010;   java code.&amp;#010;   If you name the file &quot;heading.&lt;extension>&quot;, Code Generator will always&amp;#010;   choose this file even if there are other files with the same extension in the&amp;#010;   directory. If you name the file something else, it must be the only one with that&amp;#010;   extension in the directory to guarantee that Code Generator will choose it.&amp;#010;&amp;#010;you can use variables in your heading files which are replaced at generation&amp;#010;time. possible variables are : author, date, time, filename and filepath.&amp;#010;just write %variable_name%&amp;#010;&amp;#010;This file was generated on Do Jul 22 2004 at 19:07:02&amp;#010;The original location of this file is &amp;#010;**************************************************************************/&amp;#010;" />
-     </header>
-     <classfields>
-      <codeclassfield parent_id="36" field_type="3" initialValue=" new vector( )" role_id="0" writeOutMethods="true" listClassName="" >
-       <header>
-        <cppcodedocumentation tag="" />
-       </header>
-       <ccfdeclarationcodeblock parent_id="36" tag="" canDelete="false" writeOutText="false" indentLevel="1" role_id="0" text="FIX ME;" >
-        <header>
-         <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-        </header>
-       </ccfdeclarationcodeblock>
-       <codeaccessormethod accessType="0" parent_id="36" tag="hblock_tag_0" canDelete="false" writeOutText="false" classfield_id="36" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="1" parent_id="36" tag="hblock_tag_1" canDelete="false" writeOutText="false" classfield_id="36" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="2" parent_id="36" tag="hblock_tag_2" canDelete="false" writeOutText="false" classfield_id="36" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="3" parent_id="36" tag="hblock_tag_3" canDelete="false" writeOutText="false" classfield_id="36" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="4" parent_id="36" tag="hblock_tag_4" canDelete="false" writeOutText="false" classfield_id="36" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-      </codeclassfield>
-     </classfields>
-    </classifiercodedocument>
-    <classifiercodedocument writeOutCode="true" package="" id="28" parent_class="28" fileExt=".cpp" fileName="wissensstruktur" >
-     <textblocks>
-      <codeblockwithcomments tag="includes" text="#include &quot;string&quot;&amp;#010;#include vector&quot;&amp;#010;" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <hierarchicalcodeblock tag="constructionMethodsBlock" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" text="Constructors/Destructors" />
-       </header>
-       <textblocks/>
-      </hierarchicalcodeblock>
-      <hierarchicalcodeblock tag="otherMethodsBlock" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" text="Methods" />
-       </header>
-       <textblocks>
-        <codeaccessormethod accessType="0" parent_id="36" tag="hblock_tag_0" canDelete="false" writeOutText="false" classfield_id="36" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="1" parent_id="36" tag="hblock_tag_1" canDelete="false" writeOutText="false" classfield_id="36" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="2" parent_id="36" tag="hblock_tag_2" canDelete="false" writeOutText="false" classfield_id="36" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="3" parent_id="36" tag="hblock_tag_3" canDelete="false" writeOutText="false" classfield_id="36" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="4" parent_id="36" tag="hblock_tag_4" canDelete="false" writeOutText="false" classfield_id="36" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="0" parent_id="37" tag="hblock_tag_5" canDelete="false" writeOutText="false" classfield_id="37" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="1" parent_id="37" tag="hblock_tag_6" canDelete="false" writeOutText="false" classfield_id="37" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="2" parent_id="37" tag="hblock_tag_7" canDelete="false" writeOutText="false" classfield_id="37" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="3" parent_id="37" tag="hblock_tag_8" canDelete="false" writeOutText="false" classfield_id="37" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="4" parent_id="37" tag="hblock_tag_9" canDelete="false" writeOutText="false" classfield_id="37" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-       </textblocks>
-      </hierarchicalcodeblock>
-     </textblocks>
-     <header>
-      <codecomment tag="" text="/************************************************************************&amp;#010;  			wissensstruktur.cpp - Copyright matthias&amp;#010;&amp;#010;Here you can write a license for your code, some comments or any other&amp;#010;information you want to have in your generated code. To to this simply&amp;#010;configure the &quot;headings&quot; directory in uml to point to a directory&amp;#010;where you have your heading files.&amp;#010;&amp;#010;or you can just replace the contents of this file with your own.&amp;#010;If you want to do this, this file is located at&amp;#010;&amp;#010;/opt/kde3/share/apps/umbrello/headings/heading.cpp&amp;#010;&amp;#010;-->Code Generators searches for heading files based on the file extension&amp;#010;   i.e. it will look for a file name ending in &quot;.h&quot; to include in C++ header&amp;#010;   files, and for a file name ending in &quot;.java&quot; to include in all generated&amp;#010;   java code.&amp;#010;   If you name the file &quot;heading.&lt;extension>&quot;, Code Generator will always&amp;#010;   choose this file even if there are other files with the same extension in the&amp;#010;   directory. If you name the file something else, it must be the only one with that&amp;#010;   extension in the directory to guarantee that Code Generator will choose it.&amp;#010;&amp;#010;you can use variables in your heading files which are replaced at generation&amp;#010;time. possible variables are : author, date, time, filename and filepath.&amp;#010;just write %variable_name%&amp;#010;&amp;#010;This file was generated on Do Jul 22 2004 at 19:07:02&amp;#010;The original location of this file is &amp;#010;**************************************************************************/&amp;#010;" />
-     </header>
-     <classfields>
-      <codeclassfield parent_id="36" field_type="3" initialValue="" role_id="1" writeOutMethods="true" listClassName="" >
-       <header>
-        <cppcodedocumentation tag="" />
-       </header>
-       <ccfdeclarationcodeblock parent_id="36" tag="" canDelete="false" writeOutText="false" indentLevel="1" role_id="1" text="FIX ME;" >
-        <header>
-         <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-        </header>
-       </ccfdeclarationcodeblock>
-       <codeaccessormethod accessType="0" parent_id="36" tag="hblock_tag_0" canDelete="false" writeOutText="false" classfield_id="36" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="1" parent_id="36" tag="hblock_tag_1" canDelete="false" writeOutText="false" classfield_id="36" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="2" parent_id="36" tag="hblock_tag_2" canDelete="false" writeOutText="false" classfield_id="36" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="3" parent_id="36" tag="hblock_tag_3" canDelete="false" writeOutText="false" classfield_id="36" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="4" parent_id="36" tag="hblock_tag_4" canDelete="false" writeOutText="false" classfield_id="36" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-      </codeclassfield>
-      <codeclassfield parent_id="37" field_type="3" initialValue=" new vector( )" role_id="0" writeOutMethods="true" listClassName="" >
-       <header>
-        <cppcodedocumentation tag="" />
-       </header>
-       <ccfdeclarationcodeblock parent_id="37" tag="" canDelete="false" writeOutText="false" indentLevel="1" role_id="0" text="FIX ME;" >
-        <header>
-         <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-        </header>
-       </ccfdeclarationcodeblock>
-       <codeaccessormethod accessType="0" parent_id="37" tag="hblock_tag_5" canDelete="false" writeOutText="false" classfield_id="37" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="1" parent_id="37" tag="hblock_tag_6" canDelete="false" writeOutText="false" classfield_id="37" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="2" parent_id="37" tag="hblock_tag_7" canDelete="false" writeOutText="false" classfield_id="37" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="3" parent_id="37" tag="hblock_tag_8" canDelete="false" writeOutText="false" classfield_id="37" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="4" parent_id="37" tag="hblock_tag_9" canDelete="false" writeOutText="false" classfield_id="37" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-      </codeclassfield>
-     </classfields>
-    </classifiercodedocument>
-    <classifiercodedocument writeOutCode="true" package="" id="29" parent_class="29" fileExt=".cpp" fileName="wissensbehaelter" >
-     <textblocks>
-      <codeblockwithcomments tag="includes" text="#include &quot;string&quot;&amp;#010;#include vector&quot;&amp;#010;" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <hierarchicalcodeblock tag="constructionMethodsBlock" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" text="Constructors/Destructors" />
-       </header>
-       <textblocks/>
-      </hierarchicalcodeblock>
-      <hierarchicalcodeblock tag="otherMethodsBlock" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" text="Methods" />
-       </header>
-       <textblocks>
-        <codeaccessormethod accessType="0" parent_id="37" tag="hblock_tag_0" canDelete="false" writeOutText="false" classfield_id="37" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="1" parent_id="37" tag="hblock_tag_1" canDelete="false" writeOutText="false" classfield_id="37" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="2" parent_id="37" tag="hblock_tag_2" canDelete="false" writeOutText="false" classfield_id="37" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="3" parent_id="37" tag="hblock_tag_3" canDelete="false" writeOutText="false" classfield_id="37" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="4" parent_id="37" tag="hblock_tag_4" canDelete="false" writeOutText="false" classfield_id="37" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="0" parent_id="38" tag="hblock_tag_5" canDelete="false" writeOutText="false" classfield_id="38" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="1" parent_id="38" tag="hblock_tag_6" canDelete="false" writeOutText="false" classfield_id="38" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="2" parent_id="38" tag="hblock_tag_7" canDelete="false" writeOutText="false" classfield_id="38" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="3" parent_id="38" tag="hblock_tag_8" canDelete="false" writeOutText="false" classfield_id="38" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="4" parent_id="38" tag="hblock_tag_9" canDelete="false" writeOutText="false" classfield_id="38" role_id="0" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-       </textblocks>
-      </hierarchicalcodeblock>
-     </textblocks>
-     <header>
-      <codecomment tag="" text="/************************************************************************&amp;#010;  			wissensbehaelter.cpp - Copyright matthias&amp;#010;&amp;#010;Here you can write a license for your code, some comments or any other&amp;#010;information you want to have in your generated code. To to this simply&amp;#010;configure the &quot;headings&quot; directory in uml to point to a directory&amp;#010;where you have your heading files.&amp;#010;&amp;#010;or you can just replace the contents of this file with your own.&amp;#010;If you want to do this, this file is located at&amp;#010;&amp;#010;/opt/kde3/share/apps/umbrello/headings/heading.cpp&amp;#010;&amp;#010;-->Code Generators searches for heading files based on the file extension&amp;#010;   i.e. it will look for a file name ending in &quot;.h&quot; to include in C++ header&amp;#010;   files, and for a file name ending in &quot;.java&quot; to include in all generated&amp;#010;   java code.&amp;#010;   If you name the file &quot;heading.&lt;extension>&quot;, Code Generator will always&amp;#010;   choose this file even if there are other files with the same extension in the&amp;#010;   directory. If you name the file something else, it must be the only one with that&amp;#010;   extension in the directory to guarantee that Code Generator will choose it.&amp;#010;&amp;#010;you can use variables in your heading files which are replaced at generation&amp;#010;time. possible variables are : author, date, time, filename and filepath.&amp;#010;just write %variable_name%&amp;#010;&amp;#010;This file was generated on Do Jul 22 2004 at 19:07:02&amp;#010;The original location of this file is &amp;#010;**************************************************************************/&amp;#010;" />
-     </header>
-     <classfields>
-      <codeclassfield parent_id="37" field_type="3" initialValue="" role_id="1" writeOutMethods="true" listClassName="" >
-       <header>
-        <cppcodedocumentation tag="" />
-       </header>
-       <ccfdeclarationcodeblock parent_id="37" tag="" canDelete="false" writeOutText="false" indentLevel="1" role_id="1" text="FIX ME;" >
-        <header>
-         <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-        </header>
-       </ccfdeclarationcodeblock>
-       <codeaccessormethod accessType="0" parent_id="37" tag="hblock_tag_0" canDelete="false" writeOutText="false" classfield_id="37" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="1" parent_id="37" tag="hblock_tag_1" canDelete="false" writeOutText="false" classfield_id="37" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="2" parent_id="37" tag="hblock_tag_2" canDelete="false" writeOutText="false" classfield_id="37" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="3" parent_id="37" tag="hblock_tag_3" canDelete="false" writeOutText="false" classfield_id="37" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="4" parent_id="37" tag="hblock_tag_4" canDelete="false" writeOutText="false" classfield_id="37" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-      </codeclassfield>
-      <codeclassfield parent_id="38" field_type="3" initialValue=" new vector( )" role_id="0" writeOutMethods="true" listClassName="" >
-       <header>
-        <cppcodedocumentation tag="" />
-       </header>
-       <ccfdeclarationcodeblock parent_id="38" tag="" canDelete="false" writeOutText="false" indentLevel="1" role_id="0" text="FIX ME;" >
-        <header>
-         <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-        </header>
-       </ccfdeclarationcodeblock>
-       <codeaccessormethod accessType="0" parent_id="38" tag="hblock_tag_5" canDelete="false" writeOutText="false" classfield_id="38" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="1" parent_id="38" tag="hblock_tag_6" canDelete="false" writeOutText="false" classfield_id="38" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="2" parent_id="38" tag="hblock_tag_7" canDelete="false" writeOutText="false" classfield_id="38" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="3" parent_id="38" tag="hblock_tag_8" canDelete="false" writeOutText="false" classfield_id="38" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="4" parent_id="38" tag="hblock_tag_9" canDelete="false" writeOutText="false" classfield_id="38" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-      </codeclassfield>
-     </classfields>
-    </classifiercodedocument>
-    <classifiercodedocument writeOutCode="true" package="" id="30" parent_class="30" fileExt=".cpp" fileName="wissensobjekt" >
-     <textblocks>
-      <codeblockwithcomments tag="includes" text="#include &quot;string&quot;&amp;#010;#include vector&quot;&amp;#010;" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <hierarchicalcodeblock tag="constructionMethodsBlock" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" text="Constructors/Destructors" />
-       </header>
-       <textblocks/>
-      </hierarchicalcodeblock>
-      <hierarchicalcodeblock tag="otherMethodsBlock" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" text="Methods" />
-       </header>
-       <textblocks>
-        <codeaccessormethod accessType="0" parent_id="38" tag="hblock_tag_0" canDelete="false" writeOutText="false" classfield_id="38" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="1" parent_id="38" tag="hblock_tag_1" canDelete="false" writeOutText="false" classfield_id="38" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="2" parent_id="38" tag="hblock_tag_2" canDelete="false" writeOutText="false" classfield_id="38" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="3" parent_id="38" tag="hblock_tag_3" canDelete="false" writeOutText="false" classfield_id="38" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-        <codeaccessormethod accessType="4" parent_id="38" tag="hblock_tag_4" canDelete="false" writeOutText="false" classfield_id="38" role_id="1" >
-         <header>
-          <cppcodedocumentation tag="" />
-         </header>
-        </codeaccessormethod>
-       </textblocks>
-      </hierarchicalcodeblock>
-     </textblocks>
-     <header>
-      <codecomment tag="" text="/************************************************************************&amp;#010;  			wissensobjekt.cpp - Copyright matthias&amp;#010;&amp;#010;Here you can write a license for your code, some comments or any other&amp;#010;information you want to have in your generated code. To to this simply&amp;#010;configure the &quot;headings&quot; directory in uml to point to a directory&amp;#010;where you have your heading files.&amp;#010;&amp;#010;or you can just replace the contents of this file with your own.&amp;#010;If you want to do this, this file is located at&amp;#010;&amp;#010;/opt/kde3/share/apps/umbrello/headings/heading.cpp&amp;#010;&amp;#010;-->Code Generators searches for heading files based on the file extension&amp;#010;   i.e. it will look for a file name ending in &quot;.h&quot; to include in C++ header&amp;#010;   files, and for a file name ending in &quot;.java&quot; to include in all generated&amp;#010;   java code.&amp;#010;   If you name the file &quot;heading.&lt;extension>&quot;, Code Generator will always&amp;#010;   choose this file even if there are other files with the same extension in the&amp;#010;   directory. If you name the file something else, it must be the only one with that&amp;#010;   extension in the directory to guarantee that Code Generator will choose it.&amp;#010;&amp;#010;you can use variables in your heading files which are replaced at generation&amp;#010;time. possible variables are : author, date, time, filename and filepath.&amp;#010;just write %variable_name%&amp;#010;&amp;#010;This file was generated on Do Jul 22 2004 at 19:07:02&amp;#010;The original location of this file is &amp;#010;**************************************************************************/&amp;#010;" />
-     </header>
-     <classfields>
-      <codeclassfield parent_id="38" field_type="3" initialValue=" new vector( )" role_id="1" writeOutMethods="true" listClassName="" >
-       <header>
-        <cppcodedocumentation tag="" />
-       </header>
-       <ccfdeclarationcodeblock parent_id="38" tag="" canDelete="false" writeOutText="false" indentLevel="1" role_id="1" text="FIX ME;" >
-        <header>
-         <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-        </header>
-       </ccfdeclarationcodeblock>
-       <codeaccessormethod accessType="0" parent_id="38" tag="hblock_tag_0" canDelete="false" writeOutText="false" classfield_id="38" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="1" parent_id="38" tag="hblock_tag_1" canDelete="false" writeOutText="false" classfield_id="38" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="2" parent_id="38" tag="hblock_tag_2" canDelete="false" writeOutText="false" classfield_id="38" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="3" parent_id="38" tag="hblock_tag_3" canDelete="false" writeOutText="false" classfield_id="38" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="4" parent_id="38" tag="hblock_tag_4" canDelete="false" writeOutText="false" classfield_id="38" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" />
-        </header>
-       </codeaccessormethod>
-      </codeclassfield>
-     </classfields>
-    </classifiercodedocument>
-    <classifiercodedocument writeOutCode="true" package="" id="31" parent_class="31" fileExt=".cpp" fileName="begriffsstruktur" >
-     <textblocks>
-      <codeblockwithcomments tag="includes" text="#include &quot;string&quot;&amp;#010;" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <hierarchicalcodeblock tag="constructionMethodsBlock" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" text="Constructors/Destructors" />
-       </header>
-       <textblocks/>
-      </hierarchicalcodeblock>
-      <hierarchicalcodeblock tag="otherMethodsBlock" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" text="Methods" />
-       </header>
-       <textblocks/>
-      </hierarchicalcodeblock>
-     </textblocks>
-     <header>
-      <codecomment tag="" text="/************************************************************************&amp;#010;  			begriffsstruktur.cpp - Copyright matthias&amp;#010;&amp;#010;Here you can write a license for your code, some comments or any other&amp;#010;information you want to have in your generated code. To to this simply&amp;#010;configure the &quot;headings&quot; directory in uml to point to a directory&amp;#010;where you have your heading files.&amp;#010;&amp;#010;or you can just replace the contents of this file with your own.&amp;#010;If you want to do this, this file is located at&amp;#010;&amp;#010;/opt/kde3/share/apps/umbrello/headings/heading.cpp&amp;#010;&amp;#010;-->Code Generators searches for heading files based on the file extension&amp;#010;   i.e. it will look for a file name ending in &quot;.h&quot; to include in C++ header&amp;#010;   files, and for a file name ending in &quot;.java&quot; to include in all generated&amp;#010;   java code.&amp;#010;   If you name the file &quot;heading.&lt;extension>&quot;, Code Generator will always&amp;#010;   choose this file even if there are other files with the same extension in the&amp;#010;   directory. If you name the file something else, it must be the only one with that&amp;#010;   extension in the directory to guarantee that Code Generator will choose it.&amp;#010;&amp;#010;you can use variables in your heading files which are replaced at generation&amp;#010;time. possible variables are : author, date, time, filename and filepath.&amp;#010;just write %variable_name%&amp;#010;&amp;#010;This file was generated on Do Jul 22 2004 at 19:07:02&amp;#010;The original location of this file is &amp;#010;**************************************************************************/&amp;#010;" />
-     </header>
-     <classfields/>
-    </classifiercodedocument>
-    <classifiercodedocument writeOutCode="true" package="" id="32" parent_class="32" fileExt=".cpp" fileName="begriff" >
-     <textblocks>
-      <codeblockwithcomments tag="includes" text="#include &quot;string&quot;&amp;#010;" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <hierarchicalcodeblock tag="constructionMethodsBlock" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" text="Constructors/Destructors" />
-       </header>
-       <textblocks/>
-      </hierarchicalcodeblock>
-      <hierarchicalcodeblock tag="otherMethodsBlock" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" text="Methods" />
-       </header>
-       <textblocks/>
-      </hierarchicalcodeblock>
-     </textblocks>
-     <header>
-      <codecomment tag="" text="/************************************************************************&amp;#010;  			begriff.cpp - Copyright matthias&amp;#010;&amp;#010;Here you can write a license for your code, some comments or any other&amp;#010;information you want to have in your generated code. To to this simply&amp;#010;configure the &quot;headings&quot; directory in uml to point to a directory&amp;#010;where you have your heading files.&amp;#010;&amp;#010;or you can just replace the contents of this file with your own.&amp;#010;If you want to do this, this file is located at&amp;#010;&amp;#010;/opt/kde3/share/apps/umbrello/headings/heading.cpp&amp;#010;&amp;#010;-->Code Generators searches for heading files based on the file extension&amp;#010;   i.e. it will look for a file name ending in &quot;.h&quot; to include in C++ header&amp;#010;   files, and for a file name ending in &quot;.java&quot; to include in all generated&amp;#010;   java code.&amp;#010;   If you name the file &quot;heading.&lt;extension>&quot;, Code Generator will always&amp;#010;   choose this file even if there are other files with the same extension in the&amp;#010;   directory. If you name the file something else, it must be the only one with that&amp;#010;   extension in the directory to guarantee that Code Generator will choose it.&amp;#010;&amp;#010;you can use variables in your heading files which are replaced at generation&amp;#010;time. possible variables are : author, date, time, filename and filepath.&amp;#010;just write %variable_name%&amp;#010;&amp;#010;This file was generated on Do Jul 22 2004 at 19:07:02&amp;#010;The original location of this file is &amp;#010;**************************************************************************/&amp;#010;" />
-     </header>
-     <classfields/>
-    </classifiercodedocument>
-    <classifiercodedocument writeOutCode="true" package="" id="33" parent_class="33" fileExt=".cpp" fileName="begriffsbeschreibung" >
-     <textblocks>
-      <codeblockwithcomments tag="includes" text="#include &quot;string&quot;&amp;#010;" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <hierarchicalcodeblock tag="constructionMethodsBlock" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" text="Constructors/Destructors" />
-       </header>
-       <textblocks/>
-      </hierarchicalcodeblock>
-      <hierarchicalcodeblock tag="otherMethodsBlock" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" text="Methods" />
-       </header>
-       <textblocks/>
-      </hierarchicalcodeblock>
-     </textblocks>
-     <header>
-      <codecomment tag="" text="/************************************************************************&amp;#010;  			begriffsbeschreibung.cpp - Copyright matthias&amp;#010;&amp;#010;Here you can write a license for your code, some comments or any other&amp;#010;information you want to have in your generated code. To to this simply&amp;#010;configure the &quot;headings&quot; directory in uml to point to a directory&amp;#010;where you have your heading files.&amp;#010;&amp;#010;or you can just replace the contents of this file with your own.&amp;#010;If you want to do this, this file is located at&amp;#010;&amp;#010;/opt/kde3/share/apps/umbrello/headings/heading.cpp&amp;#010;&amp;#010;-->Code Generators searches for heading files based on the file extension&amp;#010;   i.e. it will look for a file name ending in &quot;.h&quot; to include in C++ header&amp;#010;   files, and for a file name ending in &quot;.java&quot; to include in all generated&amp;#010;   java code.&amp;#010;   If you name the file &quot;heading.&lt;extension>&quot;, Code Generator will always&amp;#010;   choose this file even if there are other files with the same extension in the&amp;#010;   directory. If you name the file something else, it must be the only one with that&amp;#010;   extension in the directory to guarantee that Code Generator will choose it.&amp;#010;&amp;#010;you can use variables in your heading files which are replaced at generation&amp;#010;time. possible variables are : author, date, time, filename and filepath.&amp;#010;just write %variable_name%&amp;#010;&amp;#010;This file was generated on Do Jul 22 2004 at 19:07:02&amp;#010;The original location of this file is &amp;#010;**************************************************************************/&amp;#010;" />
-     </header>
-     <classfields/>
-    </classifiercodedocument>
-    <codedocument writeOutCode="false" package="" id="Makefile_DOC" fileExt="" fileName="Makefile" >
-     <textblocks/>
-     <header>
-      <codecomment tag="" />
-     </header>
-    </codedocument>
-    <classifiercodedocument writeOutCode="true" package="" id="cppheader27" parent_class="27" fileExt=".h" fileName="wissenspaket" >
-     <textblocks>
-      <codeblockwithcomments tag="hashDefBlock" text="#ifndef WISSENSPAKET_H&amp;#010;#define WISSENSPAKET_H" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <codeblockwithcomments tag="includes" text="#include &lt;string>&amp;#010;#include &lt;vector>&amp;#010;" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <codeblockwithcomments tag="using" writeOutText="false" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <hierarchicalcodeblock tag="namespace" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" text="Namespace" />
-       </header>
-       <textblocks>
-        <codeblockwithcomments tag="enums" writeOutText="false" >
-         <header>
-          <cppcodedocumentation tag="" writeOutText="false" />
-         </header>
-        </codeblockwithcomments>
-        <cppheaderclassdeclarationblock parent_id="27" tag="classDeclarationBlock" canDelete="false" role_id="-1" >
-         <header>
-          <cppcodecomment tag="" text="Class Wissenspaket&amp;#010;" />
-         </header>
-         <textblocks>
-          <hierarchicalcodeblock tag="publicBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Public stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="publicFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks>
-              <ccfdeclarationcodeblock parent_id="36" tag="tblock_0" canDelete="false" writeOutText="false" indentLevel="1" role_id="0" text=" vector Vector;" >
-               <header>
-                <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-               </header>
-              </ccfdeclarationcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="pubMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks>
-                <codeblockwithcomments tag="emptyconstructor" writeOutText="false" indentLevel="1" text="Wissenspaket ( ) { }" >
-                 <header>
-                  <cppcodedocumentation tag="" indentLevel="1" text="Empty Constructor" />
-                 </header>
-                </codeblockwithcomments>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="pubStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="pubRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks>
-                  <codeaccessormethod accessType="0" parent_id="36" tag="hblock_tag_0" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="1" parent_id="36" tag="hblock_tag_1" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="2" parent_id="36" tag="hblock_tag_2" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="3" parent_id="36" tag="hblock_tag_3" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="4" parent_id="36" tag="hblock_tag_4" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                 </textblocks>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-          <hierarchicalcodeblock tag="protectedBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Protected stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="protectedFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="protMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="protStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="protRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-          <hierarchicalcodeblock tag="privateBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Private stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="privateFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="privMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="privStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="privRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-         </textblocks>
-        </cppheaderclassdeclarationblock>
-       </textblocks>
-      </hierarchicalcodeblock>
-      <codeblockwithcomments tag="hashDefBlockEnd" text="#endif //WISSENSPAKET_H" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-     </textblocks>
-     <header>
-      <codecomment tag="" text="/************************************************************************&amp;#010;  			wissenspaket.h - Copyright matthias&amp;#010;&amp;#010;Here you can write a license for your code, some comments or any other&amp;#010;information you want to have in your generated code. To to this simply&amp;#010;configure the &quot;headings&quot; directory in uml to point to a directory&amp;#010;where you have your heading files.&amp;#010;&amp;#010;or you can just replace the contents of this file with your own.&amp;#010;If you want to do this, this file is located at&amp;#010;&amp;#010;/opt/kde3/share/apps/umbrello/headings/heading.h&amp;#010;&amp;#010;-->Code Generators searches for heading files based on the file extension&amp;#010;   i.e. it will look for a file name ending in &quot;.h&quot; to include in C++ header&amp;#010;   files, and for a file name ending in &quot;.java&quot; to include in all generated&amp;#010;   java code.&amp;#010;   If you name the file &quot;heading.&lt;extension>&quot;, Code Generator will always&amp;#010;   choose this file even if there are other files with the same extension in the&amp;#010;   directory. If you name the file something else, it must be the only one with that&amp;#010;   extension in the directory to guarantee that Code Generator will choose it.&amp;#010;&amp;#010;you can use variables in your heading files which are replaced at generation&amp;#010;time. possible variables are : author, date, time, filename and filepath.&amp;#010;just write %variable_name%&amp;#010;&amp;#010;This file was generated on Do Jul 22 2004 at 19:07:02&amp;#010;The original location of this file is &amp;#010;**************************************************************************/&amp;#010;" />
-     </header>
-     <classfields>
-      <codeclassfield parent_id="36" field_type="3" initialValue=" new vector( )" role_id="0" writeOutMethods="true" listClassName="" >
-       <header>
-        <cppcodedocumentation tag="" />
-       </header>
-       <ccfdeclarationcodeblock parent_id="36" tag="tblock_0" canDelete="false" writeOutText="false" indentLevel="1" role_id="0" text=" vector Vector;" >
-        <header>
-         <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-        </header>
-       </ccfdeclarationcodeblock>
-       <codeaccessormethod accessType="0" parent_id="36" tag="hblock_tag_0" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="1" parent_id="36" tag="hblock_tag_1" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="2" parent_id="36" tag="hblock_tag_2" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="3" parent_id="36" tag="hblock_tag_3" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="4" parent_id="36" tag="hblock_tag_4" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-      </codeclassfield>
-     </classfields>
-    </classifiercodedocument>
-    <classifiercodedocument writeOutCode="true" package="" id="cppheader28" parent_class="28" fileExt=".h" fileName="wissensstruktur" >
-     <textblocks>
-      <codeblockwithcomments tag="hashDefBlock" text="#ifndef WISSENSSTRUKTUR_H&amp;#010;#define WISSENSSTRUKTUR_H" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <codeblockwithcomments tag="includes" text="#include &lt;string>&amp;#010;#include &lt;vector>&amp;#010;" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <codeblockwithcomments tag="using" writeOutText="false" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <hierarchicalcodeblock tag="namespace" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" text="Namespace" />
-       </header>
-       <textblocks>
-        <codeblockwithcomments tag="enums" writeOutText="false" >
-         <header>
-          <cppcodedocumentation tag="" writeOutText="false" />
-         </header>
-        </codeblockwithcomments>
-        <cppheaderclassdeclarationblock parent_id="28" tag="classDeclarationBlock" canDelete="false" role_id="-1" >
-         <header>
-          <cppcodecomment tag="" text="Class Wissensstruktur&amp;#010;" />
-         </header>
-         <textblocks>
-          <hierarchicalcodeblock tag="publicBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Public stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="publicFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks>
-              <ccfdeclarationcodeblock parent_id="36" tag="tblock_0" canDelete="false" writeOutText="false" indentLevel="1" role_id="1" text=" Wissenspaket ;" >
-               <header>
-                <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-               </header>
-              </ccfdeclarationcodeblock>
-              <ccfdeclarationcodeblock parent_id="37" tag="tblock_1" canDelete="false" writeOutText="false" indentLevel="1" role_id="0" text=" vector Vector;" >
-               <header>
-                <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-               </header>
-              </ccfdeclarationcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="pubMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks>
-                <codeblockwithcomments tag="emptyconstructor" writeOutText="false" indentLevel="1" text="Wissensstruktur ( ) { }" >
-                 <header>
-                  <cppcodedocumentation tag="" indentLevel="1" text="Empty Constructor" />
-                 </header>
-                </codeblockwithcomments>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="pubStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="pubRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks>
-                  <codeaccessormethod accessType="0" parent_id="36" tag="hblock_tag_0" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="1" parent_id="36" tag="hblock_tag_2" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="2" parent_id="36" tag="hblock_tag_3" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="3" parent_id="36" tag="hblock_tag_4" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="4" parent_id="36" tag="hblock_tag_5" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="0" parent_id="37" tag="hblock_tag_6" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="1" parent_id="37" tag="hblock_tag_7" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="2" parent_id="37" tag="hblock_tag_8" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="3" parent_id="37" tag="hblock_tag_9" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="4" parent_id="37" tag="hblock_tag_10" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                 </textblocks>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-          <hierarchicalcodeblock tag="protectedBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Protected stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="protectedFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="protMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="protStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="protRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-          <hierarchicalcodeblock tag="privateBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Private stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="privateFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="privMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="privStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="privRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-         </textblocks>
-        </cppheaderclassdeclarationblock>
-       </textblocks>
-      </hierarchicalcodeblock>
-      <codeblockwithcomments tag="hashDefBlockEnd" text="#endif //WISSENSSTRUKTUR_H" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-     </textblocks>
-     <header>
-      <codecomment tag="" text="/************************************************************************&amp;#010;  			wissensstruktur.h - Copyright matthias&amp;#010;&amp;#010;Here you can write a license for your code, some comments or any other&amp;#010;information you want to have in your generated code. To to this simply&amp;#010;configure the &quot;headings&quot; directory in uml to point to a directory&amp;#010;where you have your heading files.&amp;#010;&amp;#010;or you can just replace the contents of this file with your own.&amp;#010;If you want to do this, this file is located at&amp;#010;&amp;#010;/opt/kde3/share/apps/umbrello/headings/heading.h&amp;#010;&amp;#010;-->Code Generators searches for heading files based on the file extension&amp;#010;   i.e. it will look for a file name ending in &quot;.h&quot; to include in C++ header&amp;#010;   files, and for a file name ending in &quot;.java&quot; to include in all generated&amp;#010;   java code.&amp;#010;   If you name the file &quot;heading.&lt;extension>&quot;, Code Generator will always&amp;#010;   choose this file even if there are other files with the same extension in the&amp;#010;   directory. If you name the file something else, it must be the only one with that&amp;#010;   extension in the directory to guarantee that Code Generator will choose it.&amp;#010;&amp;#010;you can use variables in your heading files which are replaced at generation&amp;#010;time. possible variables are : author, date, time, filename and filepath.&amp;#010;just write %variable_name%&amp;#010;&amp;#010;This file was generated on Do Jul 22 2004 at 19:07:02&amp;#010;The original location of this file is &amp;#010;**************************************************************************/&amp;#010;" />
-     </header>
-     <classfields>
-      <codeclassfield parent_id="36" field_type="3" initialValue="" role_id="1" writeOutMethods="true" listClassName="" >
-       <header>
-        <cppcodedocumentation tag="" />
-       </header>
-       <ccfdeclarationcodeblock parent_id="36" tag="tblock_0" canDelete="false" writeOutText="false" indentLevel="1" role_id="1" text=" Wissenspaket ;" >
-        <header>
-         <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-        </header>
-       </ccfdeclarationcodeblock>
-       <codeaccessormethod accessType="0" parent_id="36" tag="hblock_tag_0" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="1" parent_id="36" tag="hblock_tag_2" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="2" parent_id="36" tag="hblock_tag_3" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="3" parent_id="36" tag="hblock_tag_4" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="4" parent_id="36" tag="hblock_tag_5" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="36" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-      </codeclassfield>
-      <codeclassfield parent_id="37" field_type="3" initialValue=" new vector( )" role_id="0" writeOutMethods="true" listClassName="" >
-       <header>
-        <cppcodedocumentation tag="" />
-       </header>
-       <ccfdeclarationcodeblock parent_id="37" tag="tblock_1" canDelete="false" writeOutText="false" indentLevel="1" role_id="0" text=" vector Vector;" >
-        <header>
-         <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-        </header>
-       </ccfdeclarationcodeblock>
-       <codeaccessormethod accessType="0" parent_id="37" tag="hblock_tag_6" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="1" parent_id="37" tag="hblock_tag_7" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="2" parent_id="37" tag="hblock_tag_8" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="3" parent_id="37" tag="hblock_tag_9" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="4" parent_id="37" tag="hblock_tag_10" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-      </codeclassfield>
-     </classfields>
-    </classifiercodedocument>
-    <classifiercodedocument writeOutCode="true" package="" id="cppheader29" parent_class="29" fileExt=".h" fileName="wissensbehaelter" >
-     <textblocks>
-      <codeblockwithcomments tag="hashDefBlock" text="#ifndef WISSENSBEHAELTER_H&amp;#010;#define WISSENSBEHAELTER_H" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <codeblockwithcomments tag="includes" text="#include &lt;string>&amp;#010;#include &lt;vector>&amp;#010;" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <codeblockwithcomments tag="using" writeOutText="false" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <hierarchicalcodeblock tag="namespace" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" text="Namespace" />
-       </header>
-       <textblocks>
-        <codeblockwithcomments tag="enums" writeOutText="false" >
-         <header>
-          <cppcodedocumentation tag="" writeOutText="false" />
-         </header>
-        </codeblockwithcomments>
-        <cppheaderclassdeclarationblock parent_id="29" tag="classDeclarationBlock" canDelete="false" role_id="-1" >
-         <header>
-          <cppcodecomment tag="" text="Class Wissensbehaelter&amp;#010;" />
-         </header>
-         <textblocks>
-          <hierarchicalcodeblock tag="publicBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Public stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="publicFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks>
-              <ccfdeclarationcodeblock parent_id="37" tag="tblock_0" canDelete="false" writeOutText="false" indentLevel="1" role_id="1" text=" Wissensstruktur ;" >
-               <header>
-                <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-               </header>
-              </ccfdeclarationcodeblock>
-              <ccfdeclarationcodeblock parent_id="38" tag="tblock_1" canDelete="false" writeOutText="false" indentLevel="1" role_id="0" text=" vector Vector;" >
-               <header>
-                <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-               </header>
-              </ccfdeclarationcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="pubMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks>
-                <codeblockwithcomments tag="emptyconstructor" writeOutText="false" indentLevel="1" text="Wissensbehaelter ( ) { }" >
-                 <header>
-                  <cppcodedocumentation tag="" indentLevel="1" text="Empty Constructor" />
-                 </header>
-                </codeblockwithcomments>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="pubStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="pubRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks>
-                  <codeaccessormethod accessType="0" parent_id="37" tag="hblock_tag_0" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="1" parent_id="37" tag="hblock_tag_2" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="2" parent_id="37" tag="hblock_tag_3" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="3" parent_id="37" tag="hblock_tag_4" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="4" parent_id="37" tag="hblock_tag_5" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="0" parent_id="38" tag="hblock_tag_6" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="1" parent_id="38" tag="hblock_tag_7" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="2" parent_id="38" tag="hblock_tag_8" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="3" parent_id="38" tag="hblock_tag_9" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="4" parent_id="38" tag="hblock_tag_10" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="0" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                 </textblocks>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-          <hierarchicalcodeblock tag="protectedBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Protected stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="protectedFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="protMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="protStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="protRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-          <hierarchicalcodeblock tag="privateBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Private stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="privateFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="privMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="privStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="privRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-         </textblocks>
-        </cppheaderclassdeclarationblock>
-       </textblocks>
-      </hierarchicalcodeblock>
-      <codeblockwithcomments tag="hashDefBlockEnd" text="#endif //WISSENSBEHAELTER_H" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-     </textblocks>
-     <header>
-      <codecomment tag="" text="/************************************************************************&amp;#010;  			wissensbehaelter.h - Copyright matthias&amp;#010;&amp;#010;Here you can write a license for your code, some comments or any other&amp;#010;information you want to have in your generated code. To to this simply&amp;#010;configure the &quot;headings&quot; directory in uml to point to a directory&amp;#010;where you have your heading files.&amp;#010;&amp;#010;or you can just replace the contents of this file with your own.&amp;#010;If you want to do this, this file is located at&amp;#010;&amp;#010;/opt/kde3/share/apps/umbrello/headings/heading.h&amp;#010;&amp;#010;-->Code Generators searches for heading files based on the file extension&amp;#010;   i.e. it will look for a file name ending in &quot;.h&quot; to include in C++ header&amp;#010;   files, and for a file name ending in &quot;.java&quot; to include in all generated&amp;#010;   java code.&amp;#010;   If you name the file &quot;heading.&lt;extension>&quot;, Code Generator will always&amp;#010;   choose this file even if there are other files with the same extension in the&amp;#010;   directory. If you name the file something else, it must be the only one with that&amp;#010;   extension in the directory to guarantee that Code Generator will choose it.&amp;#010;&amp;#010;you can use variables in your heading files which are replaced at generation&amp;#010;time. possible variables are : author, date, time, filename and filepath.&amp;#010;just write %variable_name%&amp;#010;&amp;#010;This file was generated on Do Jul 22 2004 at 19:07:02&amp;#010;The original location of this file is &amp;#010;**************************************************************************/&amp;#010;" />
-     </header>
-     <classfields>
-      <codeclassfield parent_id="37" field_type="3" initialValue="" role_id="1" writeOutMethods="true" listClassName="" >
-       <header>
-        <cppcodedocumentation tag="" />
-       </header>
-       <ccfdeclarationcodeblock parent_id="37" tag="tblock_0" canDelete="false" writeOutText="false" indentLevel="1" role_id="1" text=" Wissensstruktur ;" >
-        <header>
-         <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-        </header>
-       </ccfdeclarationcodeblock>
-       <codeaccessormethod accessType="0" parent_id="37" tag="hblock_tag_0" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="1" parent_id="37" tag="hblock_tag_2" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="2" parent_id="37" tag="hblock_tag_3" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="3" parent_id="37" tag="hblock_tag_4" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="4" parent_id="37" tag="hblock_tag_5" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="37" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-      </codeclassfield>
-      <codeclassfield parent_id="38" field_type="3" initialValue=" new vector( )" role_id="0" writeOutMethods="true" listClassName="" >
-       <header>
-        <cppcodedocumentation tag="" />
-       </header>
-       <ccfdeclarationcodeblock parent_id="38" tag="tblock_1" canDelete="false" writeOutText="false" indentLevel="1" role_id="0" text=" vector Vector;" >
-        <header>
-         <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-        </header>
-       </ccfdeclarationcodeblock>
-       <codeaccessormethod accessType="0" parent_id="38" tag="hblock_tag_6" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="1" parent_id="38" tag="hblock_tag_7" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="2" parent_id="38" tag="hblock_tag_8" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="3" parent_id="38" tag="hblock_tag_9" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="4" parent_id="38" tag="hblock_tag_10" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="0" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-      </codeclassfield>
-     </classfields>
-    </classifiercodedocument>
-    <classifiercodedocument writeOutCode="true" package="" id="cppheader30" parent_class="30" fileExt=".h" fileName="wissensobjekt" >
-     <textblocks>
-      <codeblockwithcomments tag="hashDefBlock" text="#ifndef WISSENSOBJEKT_H&amp;#010;#define WISSENSOBJEKT_H" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <codeblockwithcomments tag="includes" text="#include &lt;string>&amp;#010;#include &lt;vector>&amp;#010;" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <codeblockwithcomments tag="using" writeOutText="false" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <hierarchicalcodeblock tag="namespace" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" text="Namespace" />
-       </header>
-       <textblocks>
-        <codeblockwithcomments tag="enums" writeOutText="false" >
-         <header>
-          <cppcodedocumentation tag="" writeOutText="false" />
-         </header>
-        </codeblockwithcomments>
-        <cppheaderclassdeclarationblock parent_id="30" tag="classDeclarationBlock" canDelete="false" role_id="-1" >
-         <header>
-          <cppcodecomment tag="" text="Class Wissensobjekt&amp;#010;" />
-         </header>
-         <textblocks>
-          <hierarchicalcodeblock tag="publicBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Public stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="publicFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks>
-              <ccfdeclarationcodeblock parent_id="38" tag="tblock_0" canDelete="false" writeOutText="false" indentLevel="1" role_id="1" text=" vector Vector;" >
-               <header>
-                <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-               </header>
-              </ccfdeclarationcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="pubMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks>
-                <codeblockwithcomments tag="emptyconstructor" writeOutText="false" indentLevel="1" text="Wissensobjekt ( ) { }" >
-                 <header>
-                  <cppcodedocumentation tag="" indentLevel="1" text="Empty Constructor" />
-                 </header>
-                </codeblockwithcomments>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="pubStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="pubRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks>
-                  <codeaccessormethod accessType="0" parent_id="38" tag="hblock_tag_0" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="1" parent_id="38" tag="hblock_tag_1" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="2" parent_id="38" tag="hblock_tag_2" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="3" parent_id="38" tag="hblock_tag_3" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                  <codeaccessormethod accessType="4" parent_id="38" tag="hblock_tag_4" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="1" >
-                   <header>
-                    <cppcodedocumentation tag="" indentLevel="1" />
-                   </header>
-                  </codeaccessormethod>
-                 </textblocks>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-          <hierarchicalcodeblock tag="protectedBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Protected stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="protectedFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="protMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="protStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="protRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-          <hierarchicalcodeblock tag="privateBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Private stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="privateFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="privMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="privStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="privRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-         </textblocks>
-        </cppheaderclassdeclarationblock>
-       </textblocks>
-      </hierarchicalcodeblock>
-      <codeblockwithcomments tag="hashDefBlockEnd" text="#endif //WISSENSOBJEKT_H" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-     </textblocks>
-     <header>
-      <codecomment tag="" text="/************************************************************************&amp;#010;  			wissensobjekt.h - Copyright matthias&amp;#010;&amp;#010;Here you can write a license for your code, some comments or any other&amp;#010;information you want to have in your generated code. To to this simply&amp;#010;configure the &quot;headings&quot; directory in uml to point to a directory&amp;#010;where you have your heading files.&amp;#010;&amp;#010;or you can just replace the contents of this file with your own.&amp;#010;If you want to do this, this file is located at&amp;#010;&amp;#010;/opt/kde3/share/apps/umbrello/headings/heading.h&amp;#010;&amp;#010;-->Code Generators searches for heading files based on the file extension&amp;#010;   i.e. it will look for a file name ending in &quot;.h&quot; to include in C++ header&amp;#010;   files, and for a file name ending in &quot;.java&quot; to include in all generated&amp;#010;   java code.&amp;#010;   If you name the file &quot;heading.&lt;extension>&quot;, Code Generator will always&amp;#010;   choose this file even if there are other files with the same extension in the&amp;#010;   directory. If you name the file something else, it must be the only one with that&amp;#010;   extension in the directory to guarantee that Code Generator will choose it.&amp;#010;&amp;#010;you can use variables in your heading files which are replaced at generation&amp;#010;time. possible variables are : author, date, time, filename and filepath.&amp;#010;just write %variable_name%&amp;#010;&amp;#010;This file was generated on Do Jul 22 2004 at 19:07:02&amp;#010;The original location of this file is &amp;#010;**************************************************************************/&amp;#010;" />
-     </header>
-     <classfields>
-      <codeclassfield parent_id="38" field_type="3" initialValue=" new vector( )" role_id="1" writeOutMethods="true" listClassName="" >
-       <header>
-        <cppcodedocumentation tag="" />
-       </header>
-       <ccfdeclarationcodeblock parent_id="38" tag="tblock_0" canDelete="false" writeOutText="false" indentLevel="1" role_id="1" text=" vector Vector;" >
-        <header>
-         <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-        </header>
-       </ccfdeclarationcodeblock>
-       <codeaccessormethod accessType="0" parent_id="38" tag="hblock_tag_0" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="1" parent_id="38" tag="hblock_tag_1" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="2" parent_id="38" tag="hblock_tag_2" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="3" parent_id="38" tag="hblock_tag_3" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-       <codeaccessormethod accessType="4" parent_id="38" tag="hblock_tag_4" canDelete="false" writeOutText="false" indentLevel="1" classfield_id="38" role_id="1" >
-        <header>
-         <cppcodedocumentation tag="" indentLevel="1" />
-        </header>
-       </codeaccessormethod>
-      </codeclassfield>
-     </classfields>
-    </classifiercodedocument>
-    <classifiercodedocument writeOutCode="true" package="" id="cppheader31" parent_class="31" fileExt=".h" fileName="begriffsstruktur" >
-     <textblocks>
-      <codeblockwithcomments tag="hashDefBlock" text="#ifndef BEGRIFFSSTRUKTUR_H&amp;#010;#define BEGRIFFSSTRUKTUR_H" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <codeblockwithcomments tag="includes" text="#include &lt;string>&amp;#010;" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <codeblockwithcomments tag="using" writeOutText="false" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <hierarchicalcodeblock tag="namespace" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" text="Namespace" />
-       </header>
-       <textblocks>
-        <codeblockwithcomments tag="enums" writeOutText="false" >
-         <header>
-          <cppcodedocumentation tag="" writeOutText="false" />
-         </header>
-        </codeblockwithcomments>
-        <cppheaderclassdeclarationblock parent_id="31" tag="classDeclarationBlock" canDelete="false" role_id="-1" >
-         <header>
-          <cppcodecomment tag="" text="Class Begriffsstruktur&amp;#010;" />
-         </header>
-         <textblocks>
-          <hierarchicalcodeblock tag="publicBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Public stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="publicFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="pubMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks>
-                <codeblockwithcomments tag="emptyconstructor" writeOutText="false" indentLevel="1" text="Begriffsstruktur ( ) { }" >
-                 <header>
-                  <cppcodedocumentation tag="" indentLevel="1" text="Empty Constructor" />
-                 </header>
-                </codeblockwithcomments>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="pubStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="pubRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-          <hierarchicalcodeblock tag="protectedBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Protected stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="protectedFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="protMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="protStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="protRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-          <hierarchicalcodeblock tag="privateBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Private stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="privateFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="privMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="privStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="privRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-         </textblocks>
-        </cppheaderclassdeclarationblock>
-       </textblocks>
-      </hierarchicalcodeblock>
-      <codeblockwithcomments tag="hashDefBlockEnd" text="#endif //BEGRIFFSSTRUKTUR_H" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-     </textblocks>
-     <header>
-      <codecomment tag="" text="/************************************************************************&amp;#010;  			begriffsstruktur.h - Copyright matthias&amp;#010;&amp;#010;Here you can write a license for your code, some comments or any other&amp;#010;information you want to have in your generated code. To to this simply&amp;#010;configure the &quot;headings&quot; directory in uml to point to a directory&amp;#010;where you have your heading files.&amp;#010;&amp;#010;or you can just replace the contents of this file with your own.&amp;#010;If you want to do this, this file is located at&amp;#010;&amp;#010;/opt/kde3/share/apps/umbrello/headings/heading.h&amp;#010;&amp;#010;-->Code Generators searches for heading files based on the file extension&amp;#010;   i.e. it will look for a file name ending in &quot;.h&quot; to include in C++ header&amp;#010;   files, and for a file name ending in &quot;.java&quot; to include in all generated&amp;#010;   java code.&amp;#010;   If you name the file &quot;heading.&lt;extension>&quot;, Code Generator will always&amp;#010;   choose this file even if there are other files with the same extension in the&amp;#010;   directory. If you name the file something else, it must be the only one with that&amp;#010;   extension in the directory to guarantee that Code Generator will choose it.&amp;#010;&amp;#010;you can use variables in your heading files which are replaced at generation&amp;#010;time. possible variables are : author, date, time, filename and filepath.&amp;#010;just write %variable_name%&amp;#010;&amp;#010;This file was generated on Do Jul 22 2004 at 19:07:02&amp;#010;The original location of this file is &amp;#010;**************************************************************************/&amp;#010;" />
-     </header>
-     <classfields/>
-    </classifiercodedocument>
-    <classifiercodedocument writeOutCode="true" package="" id="cppheader32" parent_class="32" fileExt=".h" fileName="begriff" >
-     <textblocks>
-      <codeblockwithcomments tag="hashDefBlock" text="#ifndef BEGRIFF_H&amp;#010;#define BEGRIFF_H" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <codeblockwithcomments tag="includes" text="#include &lt;string>&amp;#010;" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <codeblockwithcomments tag="using" writeOutText="false" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <hierarchicalcodeblock tag="namespace" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" text="Namespace" />
-       </header>
-       <textblocks>
-        <codeblockwithcomments tag="enums" writeOutText="false" >
-         <header>
-          <cppcodedocumentation tag="" writeOutText="false" />
-         </header>
-        </codeblockwithcomments>
-        <cppheaderclassdeclarationblock parent_id="32" tag="classDeclarationBlock" canDelete="false" role_id="-1" >
-         <header>
-          <cppcodecomment tag="" text="Class Begriff&amp;#010;" />
-         </header>
-         <textblocks>
-          <hierarchicalcodeblock tag="publicBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Public stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="publicFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="pubMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks>
-                <codeblockwithcomments tag="emptyconstructor" writeOutText="false" indentLevel="1" text="Begriff ( ) { }" >
-                 <header>
-                  <cppcodedocumentation tag="" indentLevel="1" text="Empty Constructor" />
-                 </header>
-                </codeblockwithcomments>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="pubStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="pubRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-          <hierarchicalcodeblock tag="protectedBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Protected stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="protectedFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="protMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="protStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="protRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-          <hierarchicalcodeblock tag="privateBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Private stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="privateFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="privMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="privStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="privRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-         </textblocks>
-        </cppheaderclassdeclarationblock>
-       </textblocks>
-      </hierarchicalcodeblock>
-      <codeblockwithcomments tag="hashDefBlockEnd" text="#endif //BEGRIFF_H" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-     </textblocks>
-     <header>
-      <codecomment tag="" text="/************************************************************************&amp;#010;  			begriff.h - Copyright matthias&amp;#010;&amp;#010;Here you can write a license for your code, some comments or any other&amp;#010;information you want to have in your generated code. To to this simply&amp;#010;configure the &quot;headings&quot; directory in uml to point to a directory&amp;#010;where you have your heading files.&amp;#010;&amp;#010;or you can just replace the contents of this file with your own.&amp;#010;If you want to do this, this file is located at&amp;#010;&amp;#010;/opt/kde3/share/apps/umbrello/headings/heading.h&amp;#010;&amp;#010;-->Code Generators searches for heading files based on the file extension&amp;#010;   i.e. it will look for a file name ending in &quot;.h&quot; to include in C++ header&amp;#010;   files, and for a file name ending in &quot;.java&quot; to include in all generated&amp;#010;   java code.&amp;#010;   If you name the file &quot;heading.&lt;extension>&quot;, Code Generator will always&amp;#010;   choose this file even if there are other files with the same extension in the&amp;#010;   directory. If you name the file something else, it must be the only one with that&amp;#010;   extension in the directory to guarantee that Code Generator will choose it.&amp;#010;&amp;#010;you can use variables in your heading files which are replaced at generation&amp;#010;time. possible variables are : author, date, time, filename and filepath.&amp;#010;just write %variable_name%&amp;#010;&amp;#010;This file was generated on Do Jul 22 2004 at 19:07:02&amp;#010;The original location of this file is &amp;#010;**************************************************************************/&amp;#010;" />
-     </header>
-     <classfields/>
-    </classifiercodedocument>
-    <classifiercodedocument writeOutCode="true" package="" id="cppheader33" parent_class="33" fileExt=".h" fileName="begriffsbeschreibung" >
-     <textblocks>
-      <codeblockwithcomments tag="hashDefBlock" text="#ifndef BEGRIFFSBESCHREIBUNG_H&amp;#010;#define BEGRIFFSBESCHREIBUNG_H" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <codeblockwithcomments tag="includes" text="#include &lt;string>&amp;#010;" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <codeblockwithcomments tag="using" writeOutText="false" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-      <hierarchicalcodeblock tag="namespace" canDelete="false" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" text="Namespace" />
-       </header>
-       <textblocks>
-        <codeblockwithcomments tag="enums" writeOutText="false" >
-         <header>
-          <cppcodedocumentation tag="" writeOutText="false" />
-         </header>
-        </codeblockwithcomments>
-        <cppheaderclassdeclarationblock parent_id="33" tag="classDeclarationBlock" canDelete="false" role_id="-1" >
-         <header>
-          <cppcodecomment tag="" text="Class Begriffsbeschreibung&amp;#010;" />
-         </header>
-         <textblocks>
-          <hierarchicalcodeblock tag="publicBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Public stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="publicFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="pubMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks>
-                <codeblockwithcomments tag="emptyconstructor" writeOutText="false" indentLevel="1" text="Begriffsbeschreibung ( ) { }" >
-                 <header>
-                  <cppcodedocumentation tag="" indentLevel="1" text="Empty Constructor" />
-                 </header>
-                </codeblockwithcomments>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="pubStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="pubRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-          <hierarchicalcodeblock tag="protectedBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Protected stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="protectedFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="protMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="protStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="protRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-          <hierarchicalcodeblock tag="privateBlock" canDelete="false" >
-           <header>
-            <cppcodedocumentation tag="" text="Private stuff" />
-           </header>
-           <textblocks>
-            <hierarchicalcodeblock tag="privateFieldsDecl" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" text="Fields" />
-             </header>
-             <textblocks/>
-            </hierarchicalcodeblock>
-            <hierarchicalcodeblock tag="privMethodsBlock" canDelete="false" indentLevel="1" >
-             <header>
-              <cppcodedocumentation tag="" indentLevel="1" />
-             </header>
-             <textblocks>
-              <hierarchicalcodeblock tag="constructionMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Constructors" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="accessorMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Accessor Methods" />
-               </header>
-               <textblocks>
-                <hierarchicalcodeblock tag="privStaticAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-                <hierarchicalcodeblock tag="privRegularAccessorMethods" canDelete="false" indentLevel="1" >
-                 <header>
-                  <cppcodedocumentation tag="" writeOutText="false" indentLevel="1" />
-                 </header>
-                 <textblocks/>
-                </hierarchicalcodeblock>
-               </textblocks>
-              </hierarchicalcodeblock>
-              <hierarchicalcodeblock tag="operationMethods" canDelete="false" indentLevel="1" >
-               <header>
-                <cppcodedocumentation tag="" indentLevel="1" text="Operations" />
-               </header>
-               <textblocks/>
-              </hierarchicalcodeblock>
-             </textblocks>
-            </hierarchicalcodeblock>
-           </textblocks>
-          </hierarchicalcodeblock>
-         </textblocks>
-        </cppheaderclassdeclarationblock>
-       </textblocks>
-      </hierarchicalcodeblock>
-      <codeblockwithcomments tag="hashDefBlockEnd" text="#endif //BEGRIFFSBESCHREIBUNG_H" >
-       <header>
-        <cppcodedocumentation tag="" writeOutText="false" />
-       </header>
-      </codeblockwithcomments>
-     </textblocks>
-     <header>
-      <codecomment tag="" text="/************************************************************************&amp;#010;  			begriffsbeschreibung.h - Copyright matthias&amp;#010;&amp;#010;Here you can write a license for your code, some comments or any other&amp;#010;information you want to have in your generated code. To to this simply&amp;#010;configure the &quot;headings&quot; directory in uml to point to a directory&amp;#010;where you have your heading files.&amp;#010;&amp;#010;or you can just replace the contents of this file with your own.&amp;#010;If you want to do this, this file is located at&amp;#010;&amp;#010;/opt/kde3/share/apps/umbrello/headings/heading.h&amp;#010;&amp;#010;-->Code Generators searches for heading files based on the file extension&amp;#010;   i.e. it will look for a file name ending in &quot;.h&quot; to include in C++ header&amp;#010;   files, and for a file name ending in &quot;.java&quot; to include in all generated&amp;#010;   java code.&amp;#010;   If you name the file &quot;heading.&lt;extension>&quot;, Code Generator will always&amp;#010;   choose this file even if there are other files with the same extension in the&amp;#010;   directory. If you name the file something else, it must be the only one with that&amp;#010;   extension in the directory to guarantee that Code Generator will choose it.&amp;#010;&amp;#010;you can use variables in your heading files which are replaced at generation&amp;#010;time. possible variables are : author, date, time, filename and filepath.&amp;#010;just write %variable_name%&amp;#010;&amp;#010;This file was generated on Do Jul 22 2004 at 19:07:02&amp;#010;The original location of this file is &amp;#010;**************************************************************************/&amp;#010;" />
-     </header>
-     <classfields/>
-    </classifiercodedocument>
-   </codegenerator>
-  </codegeneration>
+  <codegeneration/>
  </XMI.content>
 </XMI>
